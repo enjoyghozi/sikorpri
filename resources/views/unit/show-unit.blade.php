@@ -46,11 +46,13 @@
                         <td class="text-center">{{ $item->nip }}</td>
                         <td class="text-center">{{ $item->golongan->golongan}}</td>
                         <td>
+                        @if (auth()->user()->level == "admin")
                             <div class ="text-center">
                                 <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                 | 
                                 <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>
                             </div>
+                        @endif
                         </td>
                     </tr>
                     @endforeach

@@ -6,12 +6,14 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <h2 class="">Daftar Unit</h2>
-        <p class="mb-4">Berikut adalah datar unit KORPRI </p>
+        <p class="mb-4">Berikut adalah daftar unit KORPRI </p>
         <div class="card shadow mb-4">
             <div class="card-header">
+                @if (auth()->user()->level == "admin")
                 <a href=" {{ route('exportunit') }}" class="btn btn-success btn-sm" >Download</a>
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href=" {{ route('create-unit')}}" class="btn btn-primary btn-sm" >+ Tambah Unit</a>
+                @endif
                 <div class="card-body">
                     <table class="table-striped" id="myTable" style="width:100%; font-color: #000000;" >
                     <thead class="table-primary">
@@ -41,11 +43,13 @@
                                 <a class="btn btn-secondary btn-sm text-center"href=" {{ route('show-unit', $unit->id)}}">Lihat<i class="fa-solid fa-eye ml-3"></i></i></a></td>
                             </div>
                             <td>
+                            @if (auth()->user()->level == "admin")
                                 <div class ="text-center">
                                     <a href="{{ url('edit-unit', $unit->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                     | 
                                     <a href="#"><i class="fa-solid fa-trash delete-unit" style="color: red;" data-id="{{$unit->id}}"></i></a>
                                 </div>
+                            @endif
                             </td>
                         </tr>
                         @endforeach

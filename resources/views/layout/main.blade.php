@@ -84,11 +84,13 @@
                         <span>Daftar Anggota</span>
                     </a>
                 </li>
+                @if (auth()->user()->level == "admin")
                 <li class="nav-item @yield('admin')">
                     <a class="nav-link" href="/admin"><i class="fa fa-users"></i>
                         <span>Daftar Admin</span>
                     </a>
                 </li>
+                @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -100,49 +102,56 @@
 
             <!-- Nav Item - Pembayaran -->
             <li class="nav-item @yield('pembayaran')">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pembayaran"
+                    aria-expanded="true" aria-controls="pembayaran">
                     <i class="fa fa-credit-card"></i>
                     <span>Pembayaran</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="pembayaran" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Pembayaran:</h6>
                         <a class="collapse-item" href="/pembayaran">Iuran Wajib</a>
-                        <a class="collapse-item" href="cards.html">Iuran Tali Asih <br> & Uang Duka</a>
+                        <a class="collapse-item" href="/taliasih">Iuran Tali Asih <br> & Uang Duka</a>
                     </div>
                 </div>
             </li>
-            @if (auth()->user()->level == "unit")
+
+            @if (auth()->user()->level == "admin")
                 <li class="nav-item @yield('transaksi')">
                     <a class="nav-link collapsed" href="/transaksi"><i class="fa fa-table"></i>
                         <span>Transaksi</span>
                     </a>
                 </li>
             @endif
+            @if (auth()->user()->level == "unit")
                 <li class="nav-item @yield('riwayat')">
                     <a class="nav-link collapsed" href="/riwayat"><i class="fa fa-list-alt"></i>
                         <span>Riwayat</span>
                     </a>
                 </li>
+            @endif
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-heading">
                 AddOns
             </div>
+            <li class="nav-item @yield('pengaturan')">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pengaturan"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Pengaturan</span>
+                </a>
+                <div id="pengaturan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pengaturan</h6>
+                        <a class="collapse-item" href="/akun">Akun</a>
+                        <a class="collapse-item" href="{{ route('logout') }}">LogOut</a>
+                    </div>
+                </div>
+            </li>
 
-                <li class="nav-item @yield('pengaturan')">
-                    <a class="nav-link collapsed" href="/pengaturan"><i class="fa fa-cog"></i>
-                        <span>Pengaturan</span>
-                    </a>
-                </li>
-
-                <li class="nav-item @yield('akun')">
-                    <a class="nav-link collapsed" href="/akun"><i class="fa fa-user"></i>
-                        <span>Akun</span>
-                    </a>
-                </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -182,24 +191,16 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('style/img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/akun">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -250,12 +251,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Apakah anda ingin Logout?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Logout" jika anda ingin meninggalkan halaman!</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>

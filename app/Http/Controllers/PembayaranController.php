@@ -51,7 +51,7 @@ class PembayaranController extends Controller
             
         ]);
             
-            return redirect('/pembayaran')->with('toast_success', 'Berhasil menyimpan Anggota!');
+            return redirect('/pembayaran');
     }
 
     /**

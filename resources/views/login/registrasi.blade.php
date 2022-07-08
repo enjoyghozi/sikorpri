@@ -51,8 +51,7 @@
                                         placeholder="Email Address">
                                 </div>
                                 <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                            name="password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account

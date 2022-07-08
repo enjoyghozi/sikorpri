@@ -49,7 +49,7 @@ class TransaksiController extends Controller
             $nm->move(public_path().'/img', $namaFile);
             $dtTransaksi->save();
 
-            return redirect('transaksi')->with('toast_success', 'Berhasil Menyimpan Transaksi!');
+            return redirect()->back()->with('toast_success', 'Berhasil Menyimpan Transaksi!');
     
     }
 

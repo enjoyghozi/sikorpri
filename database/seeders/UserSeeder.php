@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin Korpri',
             'level' => 'admin',
-            'email' => 'admin@korpri.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123'),
             'remember_token' => Str::random(60),
         ]);

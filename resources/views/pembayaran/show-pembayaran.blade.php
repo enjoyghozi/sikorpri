@@ -104,7 +104,7 @@
                 <div class="form-group row">
                     <label class="col-md-6 col-form-label">Bukti Pembayaran*</label>
                     <div class="col-md-6">
-                    <input type="file" class="form-control-file" name="foto" id="foto">
+                    <input type="file" class="form-control-file" name="foto" id="foto" required="required">
                     </div>      
                 </div>
                 <div class="modal-footer">
@@ -115,5 +115,6 @@
         </div>
   </div>
 </div>
+@include('sweetalert::alert')
 @endsection
 

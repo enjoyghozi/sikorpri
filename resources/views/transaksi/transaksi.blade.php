@@ -1,7 +1,7 @@
 @extends( 'layout.main' )
 
-@section('title', 'Transaksi')
 @section('container')
+@section('title', 'Transaksi')
 @section('transaksi', 'active')
 
 <div class="container-fluid">

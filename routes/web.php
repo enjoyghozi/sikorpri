@@ -6,6 +6,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,7 +67,8 @@ Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name(
     // });
     
     Route::get('/admin', function () {
-        return view('admin');
+        $user = User::all();
+        return view('admin.admin', compact('user'));
     });
     
     
