@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Si KORPRI - Register</title>
+    <title>SI KORPRI - Register</title>
     <link rel = "icon" href = "{{ asset('img/logo-2.png') }}" type = "image/x-icon">
 
     <!-- Custom fonts for this template-->
@@ -28,30 +28,28 @@
 
     <div class="container">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card o-hidden border-0 shadow-lg w-100" style="margin-top: 100px">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img class="ml-4" src="{{ asset('img/korpri-register.png')}}" style='height: 100%; width: 100%; object-fit: contain'>
+                        <img class="" src="{{ asset('img/korpri-register.png')}}" style='height: 100%; width: 100%; display: block;'>
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Buat Akun Unit!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Buat Akun Anda!</h1>
                             </div>
-                            <form action="{{ route('simpanregistrasi') }}" method="post"  class="user">
+                            <form action="{{ route('simpanregistrasi') }}" method="post"  class="user ml-5">
                             {{ csrf_field() }}
                                 <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="name"
-                                            placeholder="Nama Lengkap">
+                                        <input type="text" class="form-control form-control-user" name="name" placeholder="Nama Lengkap" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" name="email"
-                                        placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-user" name="email"placeholder="Email Address" required="required">
                                 </div>
                                 <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required="required">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
@@ -59,9 +57,9 @@
                                 <hr>
                             </form>
                             <hr>
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
+                            </div> -->
                             <div class="text-center">
                                 <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
                             </div>

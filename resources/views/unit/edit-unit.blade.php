@@ -5,20 +5,29 @@
 @section('unit', 'active')
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h3 class="h3 mb-2 text-dark">Edit Unit</h3>
-        <p class="mb-4">Isikan form berikut untuk mengubah data Unit</p>
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <form class="row" action="{{ url('update-unit', $daftar_unit->id)}}" method="post">
-                    {{ csrf_field() }}
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Nama Unit</dt>
-                        <div class="form-group col-md-6">
-                            <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan nama unit .." value=" {{ $daftar_unit->nama }}">
-                        </div>
-                        <div class="form-group col">
-                                <button type="submit" class="btn btn-primary float-right mr-5">Ubah data</button>
-                        </div>
-                </form>
+        <div class="row mb-2">
+        <div class="col-sm-6">
+            <h3 class="h3 mb-2 text-dark">Edit Unit</h3>
+            <p class="mb-4">Isikan form berikut untuk mengubah data Unit</p>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a herf="#">Unit</a></li>
+                <li class="breadcrumb-item active">EditUnit</li>
+            </ol>
+        </div>
+        <div class="container">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <form class="row" action="{{ url('update-unit', $daftar_unit->id)}}" method="post">
+                        {{ csrf_field() }}
+                        <dt class="col-sm-3 mt-2 ml-5 mr-5">Nama Unit</dt>
+                            <div class="form-group col-md-6">
+                                <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan nama unit .." value=" {{ $daftar_unit->nama }}">
+                                <button type="submit" class="btn btn-primary float-right mt-3">Ubah data</button>
+                            </div>
+                    </form>
+                </div>
             </div>
         </div>
         

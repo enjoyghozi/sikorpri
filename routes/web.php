@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\TaliasihController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +78,15 @@ Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name(
     Route::get('/pembayaran/create-pembayaran', [PembayaranController::class, 'create'])->name('create-pembayaran');
     Route::post('/simpan-pembayaran', [PembayaranController::class, 'store'])->name('simpan-pembayaran');
     Route::get('/show-pembayaran/{id}', [PembayaranController::class, 'show'])->name('show-pembayaran');
+
+    //taliasih
+    Route::get('/taliasih', [TaliasihController::class, 'index'])->name('taliasih');
+    Route::get('/create-taliasih', [TaliasihController::class, 'create'])->name('create-taliasih');
+    Route::post('/simpan-taliasih', [TaliasihController::class, 'store'])->name('simpan-taliasih');
+    Route::get('/edit-taliasih/{id}', [TaliasihController::class, 'edit'])->name('edit-taliasih');
+    Route::post('/update-taliasih/{id}', [TaliasihController::class, 'update'])->name('update-taliasih');
+    Route::get('/delete-taliasih/{id}', [TaliasihController::class, 'destroy'])->name('delete-taliasih');
+
     
     
     // Transaksi
@@ -84,7 +94,7 @@ Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name(
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
     
     // Riwayat
-    Route::get('/riwayat', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::get('/riwayat', [TransaksiController::class, 'riwayat'])->name('riwayat');
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
     
     Route::get('/pengaturan', function () {

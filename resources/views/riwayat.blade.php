@@ -5,18 +5,28 @@
 
 <div class="container-fluid">
         <!-- Page Heading -->
-    <h2 class="">Laman Transaksi KORPRI</h2>
+        <div class="row mb-2">
+        <div class="col-sm-6">
+            <h2 class="">Laman Riwayat KORPRI</h2>
+            <p class="text-danger">Maaf Riwayat Transaksi masih menampilkan semua unit karena sedang proses Pengembangan</p>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a herf="#">Riwayat</a></li>
+                <li class="breadcrumb-item active">RiwayatPembayaran</li>
+            </ol>
+        </div>
     <div class="card shadow mb-4">
         <div class="card-header">
             <div class="card-body">
                 <table id="myTable">
                     <thead class="table-primary">
-                        <tr class="text-center">
-                            <th>Id Pembayaran</th>
-                            <th>Unit</th>
-                            <th>Total Pembayaran</th>
-                            <th>Tanggal Pembayaran</th>
-                            <th>Foto Bukti</th>
+                        <tr>
+                            <th class="text-center">Id Pembayaran</th>
+                            <th class="text-center">Unit</th>
+                            <th class="text-center">Total Pembayaran</th>
+                            <th class="text-center">Tanggal Pembayaran</th>
+                            <th class="text-center">Foto Bukti</th>
                         </tr>
                     </thead>
                     <tbody>

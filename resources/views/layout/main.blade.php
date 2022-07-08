@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Si KORPRI | @yield('title')</title>
+    <title>SIKORPRI | @yield('title')</title>
     <link rel = "icon" href = "{{ asset('img/logo-2.png') }}" type = "image/x-icon">
 
     <!-- Custom fonts for this template -->
@@ -51,7 +51,7 @@
                 <div class="sidebar-brand-icon">
                     <img src="{{ asset('img/logo-korpri.png')}}" style='height: 50%; width: 50%; object-fit: contain'></img>
                 </div>
-                    <div class="sidebar-brand-text text-shadow mx-3">Si KORPRI</div>
+                    <div class="sidebar-brand-text text-shadow mx-3">SIKORPRI</div>
             </a>
 
             <!-- Divider -->

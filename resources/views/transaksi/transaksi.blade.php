@@ -6,8 +6,18 @@
 
 <div class="container-fluid">
         <!-- Page Heading -->
-    <h2 class="">Laman Transaksi KORPRI</h2>
-    <div class="card shadow mb-4">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2 class="">Laman Transaksi KORPRI</h2>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a herf="#">Transaksi</a></li>
+                <li class="breadcrumb-item active">TransaksiPembayaran</li>
+            </ol>
+        </div>
+    </div>
+    <div class="card shadow mb-4 mt-5">
         <div class="card-header">
             <div class="card-body">
                 <table id="myTable">

@@ -5,8 +5,18 @@
 @section('anggota', 'active')
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h2>Daftar Anggota KORPRI</h2>
-        <p class="mb-4">Berikut adalah daftar semua Anggota tiap Unit </p>
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            <h2>Daftar Anggota KORPRI</h2>
+            <p class="mb-4">Berikut adalah daftar semua Anggota tiap Unit </p>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a herf="#">Anggota</a></li>
+                    <li class="breadcrumb-item active">DaftarAnggota</li>
+                </ol>
+            </div>
+        </div>
         <div class="card shadow mb-4">
             <div class="card-header">
             @if (auth()->user()->level == "admin")

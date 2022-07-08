@@ -5,10 +5,20 @@
 @section('unit', 'active')
     <div class="container-fluid">
         <!-- Page Heading -->
-        @foreach ($anggota->take(1) as $item)
-        <h1 class="h3 mb-2">Daftar Anggota {{$item->daftar_unit->nama}}</h1>
-        @endforeach
-        <p class="mb-4">Berikut adalah daftar Anggota Unit </p>
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                @foreach ($anggota->take(1) as $item)
+                <h1 class="h3 mb-2">Daftar Anggota {{$item->daftar_unit->nama}}</h1>
+                @endforeach
+                <p class="mb-4">Berikut adalah daftar Anggota Unit </p>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a herf="#">Unit</a></li>
+                    <li class="breadcrumb-item active">DetailUnit</li>
+                </ol>
+            </div>
+        </div>
         <div class="card  shadow mb-4">
             <div class="card-header">
                 <a href=" {{ route('exportanggota') }}" class="btn btn-success btn-sm" >Download</a>

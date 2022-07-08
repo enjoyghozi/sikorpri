@@ -3,11 +3,21 @@
 @section('container')
 @section('title', 'Detail Pembayaran')
 @section('pembayaran', 'active')
-
-    @foreach ($anggota->take(1) as $item)
-    <h1 class="h3 mb-2">Detail Pembayaran Unit {{$item->daftar_unit->nama}}</h1>
-    @endforeach
-    <p class="ml-5">Detail pembayaran sesuai dengan golongan tiap anggota. <br> Harap di teliti sebelum melakukan transaksi.</p>
+<div class="container-luid">
+    <div class="row mb-2">
+            <div class="col-sm-6">
+        @foreach ($anggota->take(1) as $item)
+        <h1 class="h3 mb-2">Detail Pembayaran Unit {{$item->daftar_unit->nama}}</h1>
+        @endforeach
+        <p class="ml-5">Detail pembayaran sesuai dengan golongan tiap anggota. <br> Harap di teliti sebelum melakukan transaksi.</p>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a herf="#">Pembayaran</a></li>
+            <li class="breadcrumb-item active">DetailPembayaran</li>
+        </ol>
+    </div>
+    </div>
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg">
@@ -58,7 +68,7 @@
             </div>
         </div>
     </div>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -6,10 +6,20 @@
 
 <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center mb-2">
-        <h1 class="h3">Dashboard Si KORPRI </h1>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <div class="d-sm-flex align-items-center mb-2">
+                <h1 class="h3">Dashboard SIKORPRI </h1>
+            </div>
+                <p>( Sistem Informasi KORPRI Kabupaten Blora )</p>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a herf="#">Home</a></li>
+                <li class="breadcrumb-item active">Beranda</li>
+            </ol>
+        </div>
     </div>
-        <p>( Sistem Informasi KORPRI Kabupaten Blora )</p>
 
     <!-- Content Row -->
     <div class="row justify-content-center mt-5">

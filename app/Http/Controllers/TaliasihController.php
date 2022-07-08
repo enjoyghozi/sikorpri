@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use App\Models\Taliasih;
 
-class TransaksiController extends Controller
+class TaliasihController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,8 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $dtTransaksi = Transaksi::latest()->get();
-        return view('transaksi.transaksi', compact('dtTransaksi'));
-    }
-
-    public function riwayat()
-    {
-        $dtTransaksi = Transaksi::latest()->get();
-        return view('riwayat', compact('dtTransaksi'));
+        $dttaliasih = Taliasih::paginate(10); 
+        return view('taliasih.taliasih', compact('dttaliasih'));
     }
 
     /**
@@ -31,7 +25,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        
+        return view('taliasih.create-taliasih');
     }
 
     /**
@@ -42,21 +36,15 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $nm = $request->foto;
-        $namaFile = time().rand(100,999).".".$namaFile = $nm->getClientOriginalName();
+        // dd($request->all());
 
-            $dtTransaksi = new Transaksi;
-            $dtTransaksi->nama_unit = $request->namaunit;
-            $dtTransaksi->total_pembayaran = $request->total;
-            $dtTransaksi->tanggal_pembayaran = $request->tanggal;
-            $dtTransaksi->foto_bukti = $namaFile;
+        Taliasih::create([
+            'unit' => $request->unit,
+            'tanggal' => $request->tanggal,
+            'nominal' => $request->nominal,
+        ]);
 
-            $nm->move(public_path().'/img', $namaFile);
-            $dtTransaksi->save();
-
-            return redirect()->back()->with('toast_success', 'Berhasil Menyimpan Transaksi!');
-    
+        return redirect('taliasih');
     }
 
     /**
@@ -78,7 +66,8 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tasih = Taliasih::findorfail($id);
+        return view('taliasih.edit-taliasih', compact('tasih'));
     }
 
     /**
@@ -90,7 +79,10 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tasih = Taliasih::findorfail($id);
+        $tasih->update($request->all());
+
+        return redirect('taliasih')->with('toast_success', 'Data Berhasil Update');
     }
 
     /**
@@ -101,6 +93,8 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tasih = Taliasih::findorfail($id);
+        $tasih->delete();
+        return back();
     }
 }
