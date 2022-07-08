@@ -10,7 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SI KORPRI</title>
+    <title>Si KORPRI | @yield('title')</title>
+    <link rel = "icon" href = "{{ asset('img/logo-2.png') }}" type = "image/x-icon">
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('style/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -46,11 +47,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fa fa-briefcase"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-between" href="/">
+                <div class="sidebar-brand-icon">
+                    <img src="{{ asset('img/logo-korpri.png')}}" style='height: 50%; width: 50%; object-fit: contain'></img>
                 </div>
-                <div class="sidebar-brand-text text-shadow mx-3">SI KORPRI</div>
+                    <div class="sidebar-brand-text text-shadow mx-3">Si KORPRI</div>
             </a>
 
             <!-- Divider -->
@@ -168,10 +169,11 @@
                         </button>
                     </form>
 
-                    <!-- Topbar Search -->
+                    <!-- Topbar Title -->
                     <form class="title text-primary ml-5">
                         <h4 style="font-weight: bold;">Sistem Informasi KORPRI</h4>
                     </form>
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

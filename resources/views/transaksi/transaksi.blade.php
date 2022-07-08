@@ -1,5 +1,6 @@
 @extends( 'layout.main' )
 
+@section('title', 'Transaksi')
 @section('container')
 @section('transaksi', 'active')
 

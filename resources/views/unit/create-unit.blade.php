@@ -1,6 +1,7 @@
 @extends('layout/main')
 
 @section('container')
+@section('title', 'Tambah Unit')
 @section('unit', 'active')
     <div class="container-fluid">
         <!-- Page Heading -->

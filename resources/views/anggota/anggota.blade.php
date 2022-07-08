@@ -1,6 +1,7 @@
 @extends('layout/main')
 
 @section('container')
+@section('title', 'Anggota')
 @section('anggota', 'active')
     <div class="container-fluid">
         <!-- Page Heading -->

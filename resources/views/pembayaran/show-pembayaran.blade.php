@@ -1,6 +1,7 @@
 @extends( 'layout.main' )
 
 @section('container')
+@section('title', 'Detail Pembayaran')
 @section('pembayaran', 'active')
 
     @foreach ($anggota->take(1) as $item)

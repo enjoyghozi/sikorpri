@@ -25,6 +25,10 @@ Route::get('/login', [LoginController::class, 'halamanLogin'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Registrasi
+Route::get('/registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+Route::post('/simpanregistrasi', [LoginController::class, 'simpanregistrasi'])->name('simpanregistrasi');
+
 // home
 Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');

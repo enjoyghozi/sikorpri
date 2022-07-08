@@ -1,6 +1,6 @@
 @extends( 'layout.main' )
-
 @section('container')
+@section('title', 'Riwayat')
 @section('riwayat', 'active')
 
 <div class="container-fluid">

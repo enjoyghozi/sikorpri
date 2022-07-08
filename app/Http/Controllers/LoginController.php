@@ -22,4 +22,12 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function registrasi(){
+        return view('login.registrasi');
+    }
+
+    public function simpanregistrasi(Request $request){
+        dd($request->all());
+    }
 }

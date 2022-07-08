@@ -1,6 +1,7 @@
 @extends( 'layout.main' )
 
 @section('container')
+@section('title', 'Pembayaran Wajib')
 @section('pembayaran', 'active')
 <h2 class="">Laman Pembayaran KORPRI</h2>
     <p class="mt-4 ml-5">Selamat datang di laman pembayaran iuran pokok Unit KORPRI. <br>Ini adalah rincian pembayaran iuran wajib perbulan unit berdasarkan jumlah anggota. <br>Harap hati-hati dalam melakukan pembayaran. Pastikan nominal saat melakukan pembayaran. </p>

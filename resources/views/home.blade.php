@@ -1,6 +1,7 @@
 @extends( 'layout.main' )
 
 @section('container')
+@section('title', 'Beranda')
 @section('dashboard', 'active')
 
 <div class="container-fluid">
