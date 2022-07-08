@@ -6,9 +6,9 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center mb-2">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard Si KORPRI </h1>
+        <h1 class="h3">Dashboard Si KORPRI </h1>
     </div>
-        <p>(Sistem Informasi KORPRI Kabupaten Blora)</p>
+        <p>( Sistem Informasi KORPRI Kabupaten Blora )</p>
 
     <!-- Content Row -->
     <div class="row justify-content-center mt-5">
