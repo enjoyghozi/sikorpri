@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2 class="mt-2">Tambah Transaksi Tali Asih <br> & Uang Duka</h2>
+                    <h4 class="h3 text-gray-800">Tambah Transaksi Tali Asih <br> & Uang Duka</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,26 +24,46 @@
     <div class="container justify-content-center mt-5" style="margin-left: 200px">
         <div class="card shadow mb-4 w-75">
             <div class="card-header">
-                
-                <h3>Create Data Tali Asih</h3>
-
-                
                     <div class="card-body">
-                        <form action="{{ route('simpan-taliasih') }}" method="post">
+                        <form action="{{ route('simpan-transaksi') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group row">
-                                <dt class="mb-2 col">Nama Unit</dt>
-                                <input type="text" id="unit" name="unit" class="form-control col" placeholder="Unit" required="required">
+                                <dt class="col-md-6">Unit*</dt>
+                                <div class="col-md-6 mb-3">
+                                    <select class="form-control select2" name="namaunit" id="namaunit" required="required">
+                                        <option value="- Pilih Unit -">- Pilih Unit -</option>
+                                        @foreach ($unit as $item)
+                                        <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group row">
-                                <dt class="mb-2 col">Tanggal</dt>
-                                <input type="date" id="tanggal" name="tanggal" class="form-control col" placeholder="Tanggal" required="required">
+                                <dt class="mb-2 col-md-6">Jenis Pembayaran*</dt>
+                                <div class="col-md-6">
+                                    <input type="text" hidden id="rincian" name="rincian" class="form-control col" value="Tali Asih & Uang Duka">
+                                    Tali Asih & Uang Duka
+                                </div>
                             </div>
-                        <div class="form-group row">
-                            <dt class="mb-2 col">Nominal</dt>
-                            <input type="number" id="nominal" name="nominal" class="form-control col" placeholder="Nominal" required="required">
-                        </div>
-                        <div class="form-group">
+                            <div class="form-group row">
+                                <dt class="col-md-6">Nominal*</dt>
+                                <div class="col-md-6">
+                                    <input type="number_format" id="total" name="total" class="form-control" placeholder="Nominal" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <dt class="col-md-6">Tanggal Pembayaran*</dt>
+                                <div class="col-md-6 mb-3">
+                                    <input type="date" id="tanggal" name="tanggal" class="form-control col" placeholder="Tanggal" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <dt class="col-md-6">Bukti Pembayaran*</dt>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control-file" name="foto" id="foto" required="required">
+                                </div>      
+                            </div>
+                        <div class="form-group mt-5">
                             <button type="submit" class="btn btn-success float-right">Simpan Data</button>
                         </div>
                     </form>
@@ -52,4 +72,5 @@
         </div>
     </div>  
 </div>
+@include('sweetalert::alert')
 @endsection

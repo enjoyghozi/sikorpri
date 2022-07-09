@@ -9,8 +9,8 @@
         
         <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>Daftar User KORPRI</h2>
-                    <p class="mb-4">Berikut adalah daftar semua User</p>
+                    <h2 class="h3 text-gray-800">Daftar User KORPRI</h2>
+                    <p class="mb-4 text-gray-800">Berikut adalah daftar semua User</p>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,14 +21,14 @@
             </div>
 
         <div class="card shadow mb-4">
-            <div class="card-body">
+            <div class="card-body text-gray-800">
                 <table class="table-striped" id="myTable">
                     <thead>
                         <tr class="table-primary">
-                            <th style="text-align: center;">ID</th>
-                            <th style="text-align: center;">NAMA</th>
-                            <th style="text-align: center;">LEVEL</th>
-                            <th style="text-align: center;">EMAIL</th>
+                            <th class="text-gray-800">ID</th>
+                            <th class="text-gray-800">Nama</th>
+                            <th class="text-gray-800">Level</th>
+                            <th class="text-gray-800">Email</th>
                         </tr>
                     </thead>
                     <tbody>

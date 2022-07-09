@@ -80,12 +80,7 @@ Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name(
     Route::get('/show-pembayaran/{id}', [PembayaranController::class, 'show'])->name('show-pembayaran');
 
     //taliasih
-    Route::get('/taliasih', [TaliasihController::class, 'index'])->name('taliasih');
-    Route::get('/create-taliasih', [TaliasihController::class, 'create'])->name('create-taliasih');
-    Route::post('/simpan-taliasih', [TaliasihController::class, 'store'])->name('simpan-taliasih');
-    Route::get('/edit-taliasih/{id}', [TaliasihController::class, 'edit'])->name('edit-taliasih');
-    Route::post('/update-taliasih/{id}', [TaliasihController::class, 'update'])->name('update-taliasih');
-    Route::get('/delete-taliasih/{id}', [TaliasihController::class, 'destroy'])->name('delete-taliasih');
+    Route::get('/taliasih', [TaliasihController::class, 'create'])->name('taliasih');
 
     
     

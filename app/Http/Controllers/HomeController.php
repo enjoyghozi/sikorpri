@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use App\Models\Daftar_unit;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,9 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $dtTransaksi = Transaksi::all();
         $unit = Daftar_unit::take(1)->get();
         $anggota = Anggota::take(1)->get();
-        return view('/home', compact('unit', 'anggota'));
+        return view('/home', compact('unit', 'anggota', 'dtTransaksi'));
     }
 
     /**

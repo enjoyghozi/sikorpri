@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Taliasih;
+use App\Models\Daftar_unit;
 
 class TaliasihController extends Controller
 {
@@ -14,7 +15,7 @@ class TaliasihController extends Controller
      */
     public function index()
     {
-        $dttaliasih = Taliasih::paginate(10); 
+        $dttaliasih = Taliasih::latest()->get(); 
         return view('taliasih.taliasih', compact('dttaliasih'));
     }
 
@@ -25,7 +26,8 @@ class TaliasihController extends Controller
      */
     public function create()
     {
-        return view('taliasih.create-taliasih');
+        $unit = Daftar_unit::all();
+        return view('taliasih.create-taliasih', compact('unit'));
     }
 
     /**
@@ -36,15 +38,6 @@ class TaliasihController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-
-        Taliasih::create([
-            'unit' => $request->unit,
-            'tanggal' => $request->tanggal,
-            'nominal' => $request->nominal,
-        ]);
-
-        return redirect('taliasih');
     }
 
     /**

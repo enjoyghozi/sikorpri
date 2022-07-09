@@ -7,8 +7,8 @@
         <!-- Page Heading -->
         <div class="row mb-2">
             <div class="col-sm-6">
-            <h2>Daftar Anggota KORPRI</h2>
-            <p class="mb-4">Berikut adalah daftar semua Anggota tiap Unit </p>
+            <h2 class="h3 text-gray-800">Daftar Anggota KORPRI</h2>
+            <p class="mb-4 text-gray-800">Berikut adalah daftar semua Anggota tiap Unit </p>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -24,39 +24,39 @@
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href=" {{ route('create-anggota')}}" class="btn btn-primary btn-sm" >+ Tambah Anggota</a>
             @endif
-            <div class="card-body">
+            <div class="card-body text-gray-800">
                 <table class="table-striped" id="myTable">
                     <thead>
                         <tr class="table-primary">
-                            <th style="text-align: center;">#</th>
-                            <th style="text-align: center;">UNIT</th>
-                            <th style="text-align: center;">NAMA</th>
-                            <th style="text-align: center;">NIP</th>
-                            <th style="text-align: center;">GOLONGAN</th>
-                            <th style="text-align: center;">TINDAKAN</th>
+                            <th class="text-gray-800">#</th>
+                            <th class="text-gray-800">UNIT</th>
+                            <th class="text-gray-800">NAMA</th>
+                            <th class="text-gray-800">NIP</th>
+                            <th class="text-gray-800">GOLONGAN</th>
+                            <th class="text-gray-800">TINDAKAN</th>
                         </tr>
                     </thead>
                     <tfoot class="table-primary">
                         <tr>
-                            <th style="text-align: center;">#</th>
-                            <th style="text-align: center;">UNIT</th>
-                            <th style="text-align: center;">NAMA</th>
-                            <th style="text-align: center;">NIP</th>
-                            <th style="text-align: center;">GOLONGAN</th>
+                            <th class="text-gray-800">#</th>
+                            <th class="text-gray-800">UNIT</th>
+                            <th class="text-gray-800">NAMA</th>
+                            <th class="text-gray-800">NIP</th>
+                            <th class="text-gray-800">GOLONGAN</th>
                             @if (auth()->user()->level == "admin")
-                            <th style="text-align: center;">TINDAKAN</th>
+                            <th class="text-gray-800">TINDAKAN</th>
                             @endif
                         </tr>
                     </tfoot>
                     @foreach ($anggota as $item)
                     <tr>
-                        <td class="text-center">{{$loop->iteration }}</td>
-                        <td class="text-center">{{ $item->daftar_unit->nama }}</td>
+                        <td class="text-gray-800">{{$loop->iteration }}</td>
+                        <td class="text-gray-800">{{ $item->daftar_unit->nama }}</td>
                         <td>{{ $item->nama}}</td>
-                        <td class="text-center">{{ $item->nip }}</td>
-                        <td class="text-center">{{ $item->golongan->golongan}}</td>
+                        <td class="text-gray-800">{{ $item->nip }}</td>
+                        <td class="text-gray-800">{{ $item->golongan->golongan}}</td>
                         <td>
-                            <div class ="text-center">
+                            <div class ="text-gray-800">
                             @if (auth()->user()->level == "admin")
                                 <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                 | 

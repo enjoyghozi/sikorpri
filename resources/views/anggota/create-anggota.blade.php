@@ -7,8 +7,8 @@
         <!-- Page Heading -->
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h3 class="h3 mb-2 text-dark">Tambah Daftar Anggota</h3>
-                <p class="mb-4">Isikan form berikut untuk menambah data Anggota</p>
+                <h3 class="h3 mb-2 text-gray-800">Tambah Daftar Anggota</h3>
+                <p class="mb-4 text-gray-800">Isikan form berikut untuk menambah data Anggota</p>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">

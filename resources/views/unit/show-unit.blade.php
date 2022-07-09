@@ -8,9 +8,9 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @foreach ($anggota->take(1) as $item)
-                <h1 class="h3 mb-2">Daftar Anggota {{$item->daftar_unit->nama}}</h1>
+                <h1 class="h3 mb-2 text-gray-800">Daftar Anggota {{$item->daftar_unit->nama}}</h1>
                 @endforeach
-                <p class="mb-4">Berikut adalah daftar Anggota Unit </p>
+                <p class="mb-4 text-gray-800">Berikut adalah daftar Anggota Unit </p>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -19,54 +19,55 @@
                 </ol>
             </div>
         </div>
-        <div class="card  shadow mb-4">
+        <div class="card shadow mb-4">
             <div class="card-header">
+            @if (auth()->user()->level == "admin")
                 <a href=" {{ route('exportanggota') }}" class="btn btn-success btn-sm" >Download</a>
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href=" {{ route('create-anggota')}}" class="btn btn-primary btn-sm" >+ Tambah Anggota</a>
-                
+            @endif
             <div class="card-body">
-                <div class="table-responsive">
-                <table class="table-striped" id="myTable">
-                    <thead class="table-primary">
+                <div class="table text-gray-800">
+                    <table class="table-striped" id="myTable">
+                        <thead class="table-primary">
+                            <tr>
+                                <th class="text-gray-800">#</th>
+                                <th class="text-gray-800">UNIT</th>
+                                <th class="text-gray-800">NAMA</th>
+                                <th class="text-gray-800">NIP</th>
+                                <th class="text-gray-800">GOLONGAN</th>
+                                <th class="text-gray-800">TINDAKAN</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="table-primary">
+                                <th class="text-gray-800">#</th>
+                                <th class="text-gray-800">UNIT</th>
+                                <th class="text-gray-800">NAMA</th>
+                                <th class="text-gray-800">NIP</th>
+                                <th class="text-gray-800">GOLONGAN</th>
+                                <th class="text-gray-800">TINDAKAN</th>
+                            </tr>
+                        </tfoot>
+                        @foreach ($anggota as $item)
                         <tr>
-                            <th style="text-align: center;">#</th>
-                            <th style="text-align: center;">UNIT</th>
-                            <th style="text-align: center;">NAMA</th>
-                            <th style="text-align: center;">NIP</th>
-                            <th style="text-align: center;">GOLONGAN</th>
-                            <th style="text-align: center;">TINDAKAN</th>
+                            <td>{{$loop->iteration}}</td>
+                            <td class="text-gray-800">{{ $item->daftar_unit->nama }}</td>
+                            <td>{{ $item->nama}}</td>
+                            <td class="text-gray-800">{{ $item->nip }}</td>
+                            <td class="text-gray-800">{{ $item->golongan->golongan}}</td>
+                            <td>
+                            @if (auth()->user()->level == "admin")
+                                <div class ="text-center">
+                                    <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
+                                    | 
+                                    <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>
+                                </div>
+                            @endif
+                            </td>
                         </tr>
-                    </thead>
-                    <tfoot>
-                        <tr class="table-primary">
-                            <th style="text-align: center;">#</th>
-                            <th style="text-align: center;">UNIT</th>
-                            <th style="text-align: center;">NAMA</th>
-                            <th style="text-align: center;">NIP</th>
-                            <th style="text-align: center;">GOLONGAN</th>
-                            <th style="text-align: center;">TINDAKAN</th>
-                        </tr>
-                    </tfoot>
-                    @foreach ($anggota as $item)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td class="text-center">{{ $item->daftar_unit->nama }}</td>
-                        <td>{{ $item->nama}}</td>
-                        <td class="text-center">{{ $item->nip }}</td>
-                        <td class="text-center">{{ $item->golongan->golongan}}</td>
-                        <td>
-                        @if (auth()->user()->level == "admin")
-                            <div class ="text-center">
-                                <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
-                                | 
-                                <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>
-                            </div>
-                        @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </table>
+                        @endforeach
+                    </table>
             </div>
         </div>
         

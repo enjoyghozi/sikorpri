@@ -13,6 +13,7 @@ class Transaksi extends Model
     protected $primaryKey ="id";
     protected $fillable = [
         'daftar_unit_id',
+        'jenis_pembayaran',
         'total_pembayaran',
         'tanggal_pembayaran',
         'foto_bukti',

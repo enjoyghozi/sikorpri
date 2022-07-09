@@ -21,7 +21,7 @@ class TransaksiController extends Controller
     public function riwayat()
     {
         $dtTransaksi = Transaksi::latest()->get();
-        return view('riwayat', compact('dtTransaksi'));
+        return view('pembayaran.riwayat', compact('dtTransaksi'));
     }
 
     /**
@@ -48,6 +48,7 @@ class TransaksiController extends Controller
 
             $dtTransaksi = new Transaksi;
             $dtTransaksi->nama_unit = $request->namaunit;
+            $dtTransaksi->jenis_pembayaran = $request->rincian;
             $dtTransaksi->total_pembayaran = $request->total;
             $dtTransaksi->tanggal_pembayaran = $request->tanggal;
             $dtTransaksi->foto_bukti = $namaFile;

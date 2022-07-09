@@ -7,8 +7,8 @@
         <!-- Page Heading -->
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h2 class="">Daftar Unit</h2>
-                <p class="mb-4">Berikut adalah daftar unit KORPRI </p>
+                <h2 class="h3 text-gray-800">Daftar Unit</h2>
+                <p class="mb-4 text-gray-800">Berikut adalah daftar unit KORPRI </p>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -24,32 +24,32 @@
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href=" {{ route('create-unit')}}" class="btn btn-primary btn-sm" >+ Tambah Unit</a>
                 @endif
-                <div class="card-body">
-                    <table class="table-striped" id="myTable" style="width:100%; font-color: #000000;" >
+                <div class="card-body text-gray-800">
+                    <table class="table-striped" id="myTable" >
                     <thead class="table-primary">
                         <tr>
-                            <th class="text-center">#</th>
-                            <th class="text-center">NAMA UNIT</th>
-                            <th class="text-center">JUMLAH ANGGOTA</th>
-                            <th class="text-center">INFO</th>
-                            <th class="text-center">TINDAKAN</th>
+                            <th class="text-gray-800">#</th>
+                            <th class="text-gray-800">Nama Unit</th>
+                            <th class="text-gray-800">Jumlah Anggota</th>
+                            <th class="text-gray-800">Info</th>
+                            <th class="text-gray-800">Tindakan</th>
                         </tr>
                     </thead>
                     <tfoot class="table-primary">
-                        <th class="text-center">#</th>
-                        <th class="text-center">NAMA UNIT</th>
-                        <th class="text-center">JUMLAH ANGGOTA</th>
-                        <th class="text-center">INFO</th>
-                        <th class="text-center">TINDAKAN</th>
+                        <th class="text-gray-800">#</th>
+                        <th class="text-gray-800">Nama Unit</th>
+                        <th class="text-gray-800">Jumlah Anggota</th>
+                        <th class="text-gray-800">Info</th>
+                        <th class="text-gray-800">Tindakan</th>
                     </tfoot>
                     @foreach ($daftar_unit as $index => $unit)
                     <tr>   
-                        <td class="text-center">{{ $index +1 }}</td>
+                        <td class="text-gray-800">{{ $index +1 }}</td>
                         <td>{{ $unit->nama }}</td>
-                        <td class="text-center">{{ $unit->Anggota->count() }}</td>
+                        <td class="text-gray-800">{{ $unit->Anggota->count() }}</td>
                         
                         <td>
-                            <div class="text-center">
+                            <div class="text-gray-800">
                                 <a class="btn btn-secondary btn-sm text-center"href=" {{ route('show-unit', $unit->id)}}">Lihat<i class="fa-solid fa-eye ml-3"></i></i></a></td>
                             </div>
                             <td>

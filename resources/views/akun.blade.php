@@ -2,16 +2,16 @@
 
 @section('container')
 @section('title', 'Akun')
-@section('akun', 'active')
+@section('pengaturan', 'active')
 
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="row mb-2">
         <div class="col-sm-6">
             <div class="d-sm-flex align-items-center mb-2">
-                <h1 class="h3">Akun anda </h1>
+                <h1 class="h3 text-gray-800">Akun anda </h1>
             </div>
-                <p class="text-danger">Maaf Anda belum bisa merubah data anda karena sedang proses pengembangan</p>
+                <p class="text-danger font-weight-bold">Maaf Anda belum bisa merubah data anda karena sedang proses pengembangan</p>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,11 +26,11 @@
                     <form action="#" method="post">
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
+                            <input type="text" disabled class="form-control" name="name" value="{{ auth()->user()->name }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" name="email" value="{{ auth()->user()->email }}">
+                            <input type="text" disabled class="form-control" name="email" value="{{ auth()->user()->email }}">
                         </div>
                         <!-- <button type="submit" class="btn btn-primary float-right">Ubah</button> -->
                     </form>

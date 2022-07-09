@@ -7,8 +7,8 @@
         <!-- Page Heading -->
         <div class="row mb-2">
         <div class="col-sm-6">
-            <h3 class="h3 mb-2 text-dark">Edit Unit</h3>
-            <p class="mb-4">Isikan form berikut untuk mengubah data Unit</p>
+            <h3 class="h3 mb-2 text-gray-800">Edit Unit</h3>
+            <p class="mb-4 text-gray-800">Isikan form berikut untuk mengubah data Unit</p>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

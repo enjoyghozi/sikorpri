@@ -313,6 +313,14 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="{{ asset('style/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('style/js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('style/js/demo/chart-pie-demo.js') }}"></script>
+
+
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('style/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
