@@ -12,8 +12,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a herf="#">Pengaturan</a></li>
-                    <li class="breadcrumb-item active">Akun</li>
+                    <li class="breadcrumb-item"><a herf="#">Daftar Unit</a></li>
+                    <li class="breadcrumb-item active">Semua Unit</li>
                 </ol>
             </div>
         </div>

@@ -54,7 +54,86 @@
   });
 
 
+    // <!-- select2 -->
+  
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+  //  <!-- end datatable -->
 
+    // <!-- datatable -->
+   
+        $(document).ready( function () {
+            $('#myTable').DataTable( {
+                responsive: true,
+            });
+        } );
+    // <!-- end datatable -->
+
+    // <!-- delete sweetalert -->
+        $ ('.delete-unit').click( function (){
+            var unitid = $(this).attr('data-id');
+            swal({
+                title: "Are you sure?",
+                text: "Anda yakin ingin menghapus "+unitid+" ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    window. location = "/delete-unit/"+unitid+" "
+                    swal("Berhasil menghapus unit!", {
+                    icon: "success",
+                    });
+                } else {
+                    swal("Unit masih tersimpan!");
+                }
+                });
+        });
+
+        $ ('.delete-anggota').click( function (){
+            var anggotaid = $(this).attr('data-id');
+            swal({
+                title: "Are you sure?",
+                text: "Anda yakin ingin menghapus "+anggotaid+" ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    window. location = "/delete-anggota/"+anggotaid+" "
+                    swal("Berhasil menghapus anggota!", {
+                    icon: "success",
+                    });
+                } else {
+                    swal("Anggota masih tersimpan");
+                }
+                });
+        });
+    // <!-- endsweetalert -->
+
+
+    // <!-- format nominal -->
+        document.querySelectorAll('input[type-currency="IDR"]').forEach((element) => {
+            element.addEventListener('keyup', function(e) {
+            let cursorPostion = this.selectionStart;
+                let value = parseInt(this.value.replace(/[^,\d]/g, ''));
+                let originalLenght = this.value.length;
+                if (isNaN(value)) {
+                this.value = "";
+                } else {    
+                this.value = value.toLocaleString('id-ID', {
+                    currency: 'IDR',
+                    style: 'currency',
+                    minimumFractionDigits: 0
+                });
+                cursorPostion = this.value.length - originalLenght + cursorPostion;
+                this.setSelectionRange(cursorPostion, cursorPostion);
+                }
+            });
+        });
 
 
 })(jQuery); // End of use strict

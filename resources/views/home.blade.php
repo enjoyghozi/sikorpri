@@ -31,9 +31,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                JUMLAH UNIT KORPRI</div>
+                                JUMLAH UNIT KORPRI
+                            </div>
                             @foreach($unit as $item)
-                            <div class="h6 mb-0 font-weight-bold text-gray-800">{{ $item->count() }} Unit</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="/unit" class="text-gray-800">{{ $item->count() }} Unit</a> </div>
                             @endforeach
                         </div>
                         <div class="col-auto">
@@ -53,7 +54,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 TOTAL ANGGOTA</div>
                                 @foreach ($anggota as $item)
-                            <div class="h6 mb-0 font-weight-bold text-gray-800">{{ $item->count() }} Anggota</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><a href="/anggota" class="text-gray-800">{{ $item->count() }} Anggota</a> </div>
                                 @endforeach
                         </div>
                         <div class="col-auto">
@@ -102,7 +103,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                    <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">

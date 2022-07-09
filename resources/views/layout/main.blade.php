@@ -147,7 +147,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pengaturan</h6>
                         <a class="collapse-item" href="/akun">Akun</a>
-                        <a class="collapse-item" href="{{ route('logout') }}">LogOut</a>
+                        <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">LogOut</a>
                     </div>
                 </div>
             </li>
@@ -286,19 +286,6 @@
 
 
 
-            <!-- Dropdown Auth -->
-
-               <!-- <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                    </div> -->
-
-
-
 
 
 
@@ -325,83 +312,10 @@
     <script src="{{ asset('style/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <script src="{{ asset('style/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('style/js/sb-admin-2.js')}}"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-    </script>
-
-    <!-- select2 -->
-    <script>
-    $(document).ready(function() {
-        $('.select2').select2();
-    });
-   </script>
-   <!-- end datatable -->
-
-    <!-- datatable -->
-    <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable( {
-                responsive: true,
-            });
-        } );
-    </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- end datatable -->
-
-    <!-- delete sweetalert -->
-    <script>
-        $ ('.delete-unit').click( function (){
-            var unitid = $(this).attr('data-id');
-            swal({
-                title: "Are you sure?",
-                text: "Anda yakin ingin menghapus "+unitid+" ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-                })
-                .then((willDelete) => {
-                if (willDelete) {
-                    window. location = "/delete-unit/"+unitid+" "
-                    swal("Berhasil menghapus unit!", {
-                    icon: "success",
-                    });
-                } else {
-                    swal("Unit masih tersimpan!");
-                }
-                });
-        });
-
-    </script>
-
-<script>
-        $ ('.delete-anggota').click( function (){
-            var anggotaid = $(this).attr('data-id');
-            swal({
-                title: "Are you sure?",
-                text: "Anda yakin ingin menghapus "+anggotaid+" ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-                })
-                .then((willDelete) => {
-                if (willDelete) {
-                    window. location = "/delete-anggota/"+anggotaid+" "
-                    swal("Berhasil menghapus anggota!", {
-                    icon: "success",
-                    });
-                } else {
-                    swal("Anggota masih tersimpan");
-                }
-                });
-        });
-    </script>
-    <!-- endsweetalert -->
-
 
 </body>
 
