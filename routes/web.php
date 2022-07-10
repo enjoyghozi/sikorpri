@@ -7,7 +7,7 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\TaliasihController;
 use App\Http\Controllers\TransaksiController;
-use App\Models\User;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,29 +48,21 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
     
     
     // anggota
-    
-    
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
     Route::get('/exportanggota', [AnggotaController::class, 'anggotaexport'])->name('exportanggota');
-Route::post('/importanggota', [AnggotaController::class, 'anggotaimportexcel'])->name('importanggota');
-Route::get('/create-anggota', [AnggotaController::class, 'create'])->name('create-anggota');
-Route::post('/simpan-anggota', [AnggotaController::class, 'store'])->name('simpan-anggota');
-Route::get('/edit-anggota/{id}', [AnggotaController::class, 'edit'])->name('edit-anggota');
-Route::post('/update-anggota/{id}', [AnggotaController::class, 'update'])->name('update-anggota');
-Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name('delete-anggota');
+    Route::post('/importanggota', [AnggotaController::class, 'anggotaimportexcel'])->name('importanggota');
+    Route::get('/create-anggota', [AnggotaController::class, 'create'])->name('create-anggota');
+    Route::post('/simpan-anggota', [AnggotaController::class, 'store'])->name('simpan-anggota');
+    Route::get('/edit-anggota/{id}', [AnggotaController::class, 'edit'])->name('edit-anggota');
+    Route::post('/update-anggota/{id}', [AnggotaController::class, 'update'])->name('update-anggota');
+    Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name('delete-anggota');
 
+    // Admin
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/edit-admin/{id}', [AdminController::class, 'edit'])->name('edit-admin');
+    Route::post('/update-admin/{id}', [AdminController::class, 'update'])->name('update-admin');
+    Route::get('/delete-user/{id}', [AdminController::class, 'destroy'])->name('delete-user');
 
-
-
-
-// Route::get('/anggota', function () {
-    //     return view('anggota');
-    // });
-    
-    Route::get('/admin', function () {
-        $user = User::all();
-        return view('admin.admin', compact('user'));
-    });
     
     
     // Pembayaran

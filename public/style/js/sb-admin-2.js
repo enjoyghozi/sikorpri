@@ -112,6 +112,28 @@
                 }
                 });
         });
+
+        $ ('.delete-user').click( function (){
+          var userid = $(this).attr('data-id');
+          swal({
+              title: "Are you sure?",
+              text: "Anda yakin ingin menghapus "+userid+" ",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+                  window. location = "/delete-user/"+userid+" "
+                  swal("Berhasil menghapus user!", {
+                  icon: "success",
+                  });
+              } else {
+                  swal("user masih tersimpan");
+              }
+              });
+      });
+      
     // <!-- endsweetalert -->
 
 

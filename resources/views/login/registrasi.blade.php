@@ -50,6 +50,9 @@
                                                 <input type="text" class="form-control form-control-user" name="name" placeholder="Nama Lengkap" required="required">
                                         </div>
                                         <div class="form-group">
+                                                <input type="text" hidden name="level" value="unit">
+                                        </div>
+                                        <div class="form-group">
                                             <input type="email" class="form-control form-control-user" name="email"placeholder="Email Address" required="required">
                                         </div>
                                         <div class="form-group">
