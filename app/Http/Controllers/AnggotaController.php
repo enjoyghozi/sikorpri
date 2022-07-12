@@ -20,8 +20,10 @@ class AnggotaController extends Controller
      */
     public function index(Request $request)
     {
+        $golongan = Golongan::all();
+        $unit = Daftar_unit::all();
         $anggota = Anggota::latest()->get();
-        return view ('anggota.anggota', compact('anggota'));
+        return view ('anggota.anggota', compact('anggota', 'unit', 'golongan'));
     }
 
     public function anggotaexport() {
@@ -56,13 +58,14 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
+        
         Anggota::create([
             'nip' => $request->nip,
             'nama' => $request->nama,
             'golongan_id' => $request->golongan_id,
             'nominal' => $request->nominal,
             'daftar_unit_id' => $request->daftar_unit_id,
-            
+            'keterangan' => '',
         ]);
             
             return redirect('/anggota')->with('toast_success', 'Berhasil menyimpan Anggota!');

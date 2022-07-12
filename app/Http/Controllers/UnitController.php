@@ -78,7 +78,7 @@ class UnitController extends Controller
             
         ]);
             
-            return redirect('/unit')->with('toast_success', 'Berhasil menyimpan unit!');;
+            return back()->with('toast_success', 'Berhasil menyimpan unit!');;
         }
 
 }

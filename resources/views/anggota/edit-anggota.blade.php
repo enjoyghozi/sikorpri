@@ -18,14 +18,15 @@
                 </ol>
             </div>
         </div>
-        <div class="card shadow mb-4">
-            
-            <div class="card-body">
-                <form class="row" action="{{ url('update-anggota', $anggota->id)}}" method="post">
-                    {{ csrf_field() }}
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Unit</dt>
-                        <div class="form-group col-md-6">
-                            <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id">
+
+        <div class="container mb-2 w-50">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <form action="{{ url('update-anggota', $anggota->id)}}" method="post">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Unit*</label>
+                            <select class="form-control select2" name="daftar_unit_id" id="daftar_unit_id" required>
                             <option disabled value>Pilih Unit</option>
                             <option value="{{ $anggota->daftar_unit_id }}">{{ $anggota->daftar_unit->nama }}</option>
                         @foreach ($unit as $item)
@@ -33,33 +34,49 @@
                         @endforeach
                             </select>
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Nama</dt>
-                        <div class="form-group col-md-6">
+
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Nama*</label>
                             <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan Nama Anggota Baru .." value=" {{ $anggota->nama }}" required="required">
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">NIP</dt>
-                        <div class="form-group col-md-6">
+
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">NIP*</label>
                             <input type="text" id="nip" name="nip" class="form-control " placeholder="Isikan NIP Anggota Baru .." value=" {{ $anggota->nip }}" required="required">
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Golongan</dt>
-                        <div class="form-group col-md-6">
-                            <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id">
+
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Golongan*</label>
+                            <select class="form-control select2" name="daftar_unit_id" id="daftar_unit_id" required>
                             <option disabled value>Pilih Unit</option>
                             <option value="{{ $anggota->golongan_id }}">{{ $anggota->golongan->golongan }}</option>
                         @foreach ($golongan as $item)
                             <option value="{{ $item->id }}">{{ $item->golongan }}</option>
                         @endforeach
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Nominal Iuran*</label>
+                            <select class="form-control select2" name="nominal" id="nominal" required="required">
+                                <option disabled value="- Pilih Nominal -">- Pilih Nominal -</option>
+                                <option value="{{ $anggota->golongan_id }}">Rp{{ number_format($anggota->golongan->nominal) }}</option>
+                                @foreach ($golongan as $item)
+                                <option value="{{ $item->nominal }}">Rp{{ number_format($item->nominal) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Keterangan (SubUnit)</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" placeholder="Sub Unit .." value="{{ $anggota->keterangan }}">{{ $anggota->keterangan }}</textarea>
                             <button type="submit" class="btn btn-primary float-right mt-5">Ubah Data</button>
                         </div>
                     </form>
-
-                
-
-
+                </div>
             </div>
         </div>
-        
+
     </div> <!-- /.container-fluid -->
     
     <!-- Modal Upload -->

@@ -85,61 +85,53 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <div class="container">   
-            <div class="modal-body">
-                <form action=" {{ route('simpan-transaksi')}}" method="post" enctype="multipart/form-data" required="required">
+        
+            <div class="modal-body ml-3">
+                <form action=" {{ route('simpan-transaksi')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Nama Unit*</label>
-                        <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Nama Unit*</label>
                         @foreach ($anggota->take(1) as $item)
-                            <input type="text" class="form-control-plaintext" name="namaunit" id="namaunit" value="{{$item->daftar_unit->nama}}">
+                            <input type="text" disabled class="ml-3 form-control-plaintext font-weight-bold text-black" name="namaunit" id="namaunit" value="{{$item->daftar_unit->nama}}">
                         @endforeach
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Rincian*</label>
-                        <div class="col-sm-6 col-form-label">
-                            <input class="col-sm-6 mt-2" type="hidden" class="form-control-plaintext" name="rincian" id="rincian" value="Iuran Wajib">Pembayaran Iuran Wajib
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Total Pembayaran*</label>
-                        <div class="col-sm-5">
-                        <input type="number" hidden class="form-control" name="total" id="total" placeholder="{{$anggota->sum('nominal')}}" value="{{$anggota->sum('nominal')}}">Rp {{number_format($anggota->sum('nominal'))}}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Tanggal Pembayaran*</label>
-                        <div class="col-sm-5">
-                        <input type="date" class="form-control" name="tanggal" id="tanggal" placeholder="Tanggal Pembayaran" required="required">
-                        </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-md-6 col-form-label">Rekening Tujuan*</label>
-                            <p class="col-md-6" style="font-size: 13px; font-weight: bold;">BANK JATENG CABANG BLORA <br> a.n. Dewan Pengurus KORPRI</p>
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Rincian*</label> <br>
+                        <input type="hidden" class="form-control-plaintext" name="rincian" id="rincian" value="Iuran Wajib"><span class="ml-3 font-weight-bold text-black">Pembayaran Iuran Wajib</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Total Pembayaran*</label> <br>
+                        <input type="number" hidden class="ml-3 form-control" name="total" id="total" placeholder="{{$anggota->sum('nominal')}}" value="{{$anggota->sum('nominal')}}"><span class="ml-3 font-weight-bold text-black">Rp {{number_format($anggota->sum('nominal'))}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Tanggal Pembayaran*</label>
+                        <input type="date" class="ml-3 form-control w-50 font-weight-bold text-black" name="tanggal" id="tanggal" required="required">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Nomor Rekening</label>
+                        <p class="ml-3 text-black" style="font-size: 18px; font-weight: bold;">3-016-22368-8</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Rekening Tujuan*</label>
+                            <p class="ml-3 text-black" style="font-size: 15px; font-weight: bold;">BANK JATENG CABANG BLORA a.n. Dewan Pengurus KORPRI</p>
                     </div>
                         
-                    <div class="form-group row">
-                        <label class="col-md-6">Nomor Rekening</label>
-                        <div class="col-sm-5">
-                            <p class="col" style="font-size: 18px; font-weight: bold;">3-016-22368-8</p>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label text-secondary">Bukti Pembayaran*</label>
+                        <input type="file" class="ml-3 form-control-file" name="foto" id="foto" required="required">
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-6 col-form-label">Bukti Pembayaran*</label>
-                        <div class="col-md-6">
-                        <input type="file" class="form-control-file" name="foto" id="foto" required="required">
-                        </div>      
-                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Kirim</button>
                     </div>
                 </form>
             </div>
-        </div>
     </div>
 </div>
 @include('sweetalert::alert')

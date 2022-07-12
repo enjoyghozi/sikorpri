@@ -17,30 +17,32 @@
                 </ol>
             </div>
         </div>
-        <div class="card card-info card-outline">
-            
-            <div class="card-body">
-                <form class="row" action=" {{ route('simpan-anggota')}}" method="post" required="required">
-                    {{ csrf_field() }}
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">NIP*</dt>
-                        <div class="form-group col-md-6">
+
+        <!-- Card Create -->
+        <div class="container w-50">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action=" {{ route('simpan-anggota')}}" method="post" required="required">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">NIP*</label>
                             <input type="number" id="nip" name="nip" class="form-control " placeholder="Isikan NIP Anggota Baru .." required="required">
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Nama*</dt>
-                        <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Nama*</label>
                             <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan Nama Anggota Baru .." required="required">
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Unit*</dt>
-                        <div class="form-group col-md-6">
-                            <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id" required="required">
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Unit*</label>
+                            <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id" required>
                                 <option value="- Pilih Unit -">- Pilih Unit -</option>
                                 @foreach ($unit as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Golongan*</dt>
-                        <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Golongan*</label>
                             <select class="form-control select2" style="width: 100%" name="golongan_id" required="required">
                                 <option value="- Pilih Golongan -">- Pilih Golongan -</option>
                                 @foreach ($golongan as $item)
@@ -49,26 +51,27 @@
                             </select>
                         </div>
 
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Nominal Iuran*</dt>
-                    <div class="form-group col-md-6">
-                        <select class="form-control select2" style="width: 100%" name="nominal" id="nominal" required="required">
-                            <option value="- Pilih Nominal -">- Pilih Nominal -</option>
-                            @foreach ($golongan as $item)
-                            <option value="{{ $item->nominal }}">{{ $item->nominal }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                        <div class="form-group float-right" style="margin-left: 330px;">
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Nominal Iuran*</label>
+                            <select class="form-control select2" style="width: 100%" name="nominal" id="nominal" required="required">
+                                <option value="- Pilih Nominal -">- Pilih Nominal -</option>
+                                @foreach ($golongan as $item)
+                                <option value="{{ $item->nominal }}">{{ $item->nominal }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label font-weight-bold">Keterangan (SubUnit)</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" placeholder="Sub Unit .."></textarea>
+                        </div>
+                        <div class="form-group float-right">
                                 <button type="submit" class="btn btn-success btn-sm">Simpan data</button>
                         </div>
-                </form>
-
-                
-
-
-            </div>
+                    </form>
+                </div>
+            </div> 
         </div>
+            <!-- end card -->
         
     </div> <!-- /.container-fluid -->
     

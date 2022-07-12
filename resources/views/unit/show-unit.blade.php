@@ -32,21 +32,23 @@
                         <thead class="table-primary">
                             <tr>
                                 <th class="text-gray-800">#</th>
-                                <th class="text-gray-800">UNIT</th>
-                                <th class="text-gray-800">NAMA</th>
+                                <th class="text-gray-800">Unit</th>
+                                <th class="text-gray-800">Nama</th>
                                 <th class="text-gray-800">NIP</th>
-                                <th class="text-gray-800">GOLONGAN</th>
-                                <th class="text-gray-800">TINDAKAN</th>
+                                <th class="text-gray-800">Golongan</th>
+                                <th class="text-gray-800">Keterangan (SubUnit)</th>
+                                <th class="text-gray-800">Tindakan</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr class="table-primary">
                                 <th class="text-gray-800">#</th>
-                                <th class="text-gray-800">UNIT</th>
-                                <th class="text-gray-800">NAMA</th>
+                                <th class="text-gray-800">Unit</th>
+                                <th class="text-gray-800">Nama</th>
                                 <th class="text-gray-800">NIP</th>
-                                <th class="text-gray-800">GOLONGAN</th>
-                                <th class="text-gray-800">TINDAKAN</th>
+                                <th class="text-gray-800">Golongan</th>
+                                <th class="text-gray-800">Keterangan (SubUnit)</th>
+                                <th class="text-gray-800">Tindakan</th>
                             </tr>
                         </tfoot>
                         @foreach ($anggota as $item)
@@ -56,6 +58,7 @@
                             <td>{{ $item->nama}}</td>
                             <td class="text-gray-800">{{ $item->nip }}</td>
                             <td class="text-gray-800 text-center">{{ $item->golongan->golongan}}</td>
+                            <td>{{ $item->keterangan }}</td>
                             <td>
                             @if (auth()->user()->level == "admin")
                                 <div class ="text-center">

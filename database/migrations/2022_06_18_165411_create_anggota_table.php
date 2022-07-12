@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nip', 100);
             $table->string('nama', 100);
             $table->string('golongan_id', 100);
+            $table->string('keterangan', 100)->nullable();
             $table->string('daftar_unit_id', 100);
             $table->timestamps();
         });

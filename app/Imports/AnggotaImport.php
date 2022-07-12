@@ -20,6 +20,7 @@ class AnggotaImport implements ToModel
             'golongan_id' => $row[3],
             'nominal' => $row[4],
             'daftar_unit_id' => $row[5],
+            'keterangan' => $row[6],
         ]);
     }
 }

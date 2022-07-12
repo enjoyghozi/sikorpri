@@ -22,7 +22,7 @@
                 @if (auth()->user()->level == "admin")
                 <a href=" {{ route('exportunit') }}" class="btn btn-success btn-sm" >Download</a>
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
-                <a href=" {{ route('create-unit')}}" class="btn btn-primary btn-sm" >+ Tambah Unit</a>
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-unit">+ Tambah Unit</a>
                 @endif
                 <div class="card-body text-gray-800">
                     <table class="table-striped" id="myTable" >
@@ -101,6 +101,39 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Create -->
+
+<!-- Modal -->
+<div class="modal fade" id="create-unit" tabindex="-1" role="dialog" aria-labelledby="create-unitLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="create-unitLabel">Tambah Unit Baru</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action=" {{ route('simpan-unit')}}" method="post" required="required">
+            <div class="modal-body">
+                <div class="card-body">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label class="form-label">Nama Unit</label>
+                        <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan nama unit .." required="required">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
     @include('sweetalert::alert')
 
 

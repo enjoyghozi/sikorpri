@@ -57,42 +57,42 @@
         </div>
 </div>
 
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+<div class="modal fade border-0" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="color: black;">
-            <div class="modal-header mb-3">
-                <h5 class="modal-title text-center" id="createModalLabel">Form Tambah User</h5>
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="createModalLabel">Tambah User Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-        <form class="row" action="{{ route('simpanregistrasi') }}" method="post"  class="user ml-5">
-        {{ csrf_field() }}
-            <dt class="col-sm-3 mt-2 ml-5 mr-5">Nama</dt>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required="required">
-            </div>
-            <dt class="col-sm-3 mt-2 ml-5 mr-5">Level</dt>
-            <div class="form-group col-md-6">
-                <select name="level" class="form-control col-md-6 w-100" required="required" id="">
-                    <option >- PilihLevel -</option>
-                    <option value="admin">Admin</option>
-                    <option value="unit">Unit</option>
-                </select>        
-            </div>
-            <dt class="col-sm-3 mt-2 ml-5 mr-5">Email</dt>
-            <div class="form-group col-md-6">
-                <input type="email" class="form-control form-control-user" name="email"placeholder="Email Address" required="required">
-            </div>
-            <dt class="col-sm-3 mt-2 ml-5 mr-5">Password</dt>
-            <div class="form-group col-md-6">
-                <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required="required">
-            </div>
-            <div class="form-group col-md-6 ml-5">
-            </div>
-                <button type="submit" class="btn btn-primary mb-4">Register Account</button>
-        </form>
+        <div class="modal-body">
+            <form action="{{ route('simpanregistrasi') }}" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label class="form-label font-weight-bold">Nama*</label>
+                    <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required="required">
+                </div>
+                <div class="form-group">
+                    <label class="form-label font-weight-bold">Level*</label>
+                    <select name="level" class="form-control w-100" required="required" id="">
+                        <option >- PilihLevel -</option>
+                        <option value="admin">Admin</option>
+                        <option value="unit">Unit</option>
+                    </select>        
+                </div>
+                    <div class="form-group">
+                        <label class="form-label font-weight-bold">Email*</label>
+                        <input type="email" class="form-control" name="email"placeholder="Email Address" required="required">
+                    </div>
+                <div class="form-group">
+                    <label class="form-label font-weight-bold">Password*</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div>
+                <button type="submit" class="btn btn-primary mb-4 float-right">Register Account</button>
+            </form>
+        </div>
     </div>
 </div>
 @include('sweetalert::alert')

@@ -8,14 +8,13 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Anggota extends Model
 {
-    use Sortable;
-
     protected $table = "anggota";
     protected $primaryKey = "id";
     protected $fillable = [
         'nip',
         'nama',
         'golongan_id',
+        'keterangan',
         'nominal',
         'daftar_unit_id',
     ];
