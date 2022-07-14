@@ -27,9 +27,11 @@
                         <tr>
                             <th class="text-gray-800">Id Pembayaran</th>
                             <th class="text-gray-800">Unit</th>
+                            <th class="text-gray-800">Jenis Pembayaran</th>
                             <th class="text-gray-800">Total Pembayaran</th>
                             <th class="text-gray-800">Tanggal Pembayaran</th>
                             <th class="text-gray-800">Foto Bukti</th>
+                            <th class="text-gray-800">Tindakan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,10 +39,14 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->nama_unit }}</td>
+                            <td>{{ $item->jenis_pembayaran }}</td>
                             <td class="text-gray-800">Rp {{ number_format($item->total_pembayaran) }}</td>
                             <td class="text-gray-800">{{ $item->tanggal_pembayaran }}</td>
                             <td>
                                 <a href="{{ asset( 'img/'. $item->foto_bukti ) }}" target="_blank" rel="noopener noreferrer"> Lihat foto</a>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-danger delete-transaksi" data-id="{{$item->id}}">Hapus</a>
                             </td>
                         </tr>
                         @endforeach

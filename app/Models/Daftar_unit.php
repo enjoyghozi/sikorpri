@@ -27,6 +27,11 @@ class Daftar_unit extends Model
         return $this->hasMany(Pembayaran::class);
     }
 
+    public function bayartaliasih()
+    {
+        return $this->hasMany(BayarTaliasih::class);
+    }
+
     public function detail_pembayaran()
     {
         return $this->belongsTo(DetailPembayaran::class);

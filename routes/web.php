@@ -7,6 +7,7 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\TaliasihController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\BayarTaliasihController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,7 +73,15 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
     Route::get('/show-pembayaran/{id}', [PembayaranController::class, 'show'])->name('show-pembayaran');
 
     //taliasih
-    Route::get('/taliasih', [TaliasihController::class, 'create'])->name('taliasih');
+    Route::post('/simpan-daftar', [BayarTaliasihController::class, 'store'])->name('simpan-daftar');
+    Route::get('/bayartaliasih', [BayarTaliasihController::class, 'index'])->name('bayartaliasih');
+    Route::get('/bayartaliasih/create-bayartaliasih', [BayarTaliasihController::class, 'create'])->name('create-bayartaliasih');
+
+
+    Route::get('/taliasih', [TaliasihController::class, 'index'])->name('taliasih');
+    Route::get('/create-taliasih', [TaliasihController::class, 'create'])->name('create-taliasih');
+    Route::post('/simpan-taliasih', [TaliasihController::class, 'store'])->name('simpan-taliasih');
+    Route::get('/delete-taliasih/{id}', [TaliasihController::class, 'destroy'])->name('delete-taliasih');
 
     
     
@@ -81,9 +90,11 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
     
     // Riwayat
-    Route::get('/riwayat', [TransaksiController::class, 'riwayat'])->name('riwayat');
+    Route::get('/riwayat-iuranwajib', [TransaksiController::class, 'riwayat'])->name('riwayat-iuranwajib');
+    Route::get('/riwayat-taliasih', [TaliasihController::class, 'index'])->name('riwayat-taliasih');
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
-    
+    Route::get('/delete-transaksi/{id}', [TransaksiController::class, 'destroy'])->name('delete-transaksi');
+
     Route::get('/pengaturan', function () {
         return view('pengaturan');
     });

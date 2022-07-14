@@ -18,33 +18,12 @@
         </div>
     </div>
     <div class="container">
-
-        <div class="container">
-            <div class="card card-info mt-5 shadow mb-4" style="width: 50rem; margin-left: 50px;">
-            <h3 class="h3 p-3 text-center">Pembayaran Iuran Wajib KORPRI</h3>
-                <form class="row mt-2" action=" {{ route('simpan-pembayaran')}}" method="post" required="required">
-                    {{ csrf_field() }}
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Unit*</dt>
-                        <div class="form-group col-md-6">
-                            <select class="form-control select2" name="daftar_unit_id" id="daftar_unit_id" required="required">
-                                <option disabled value="- Pilih Unit -">- Pilih Unit -</option>
-                                @foreach ($unit as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Rincian Pembayaran</dt>
-                        <div class="form-group col-md-6">
-                            <input type="text" readonly id="staticEmail" name="rincian_pembayaran" class="form-control-plaintext" value="Pembayaran Iuran Wajib">
-                        </div>
-                    <div class="col mb-4">
-                        <button type="submit" class="btn btn-success btn-sm" style="margin-left: 300px;">Tambah Pembayaran</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
         <div class="card mt-3 shadow mb-4">
+            <div class="card-header">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                Pilih Unit +
+                </button>
+            </div>
             <div class="card-body">
                 <table action="post" class="table text-gray-800" id="table-pembayaran">
                     <thead class="table-primary">
@@ -66,12 +45,53 @@
                             <td>{{ $item->rincian_pembayaran }}</td>
                         </tr>
                     </tbody>
-                    <a class="btn btn-secondary shadow mb-4 float-right" href="{{ route('show-pembayaran', $item->daftar_unit_id)}}" >Lihat Detail dan Pembayaran</a>
-                    @endforeach
                 </table>
             </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary shadow mb-4 float-right" href="{{ route('show-pembayaran', $item->daftar_unit_id)}}" >Lihat Detail dan Pembayaran</a>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>
     
+
+
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pembayaran</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="row mt-2" action=" {{ route('simpan-pembayaran')}}" method="post" required="required">
+                        {{ csrf_field() }}
+                        <dt class="col-md-5 ml-3">Unit*</dt>
+                            <div class="form-group col-md-6">
+                                <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id" required="required">
+                                    <option disabled value="- Pilih Unit -">- Pilih Unit -</option>
+                                    @foreach ($unit as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        <dt class="col-md-5 ml-3">Rincian</dt>
+                            <div class="form-group col-md-6">
+                                <input type="text" readonly id="staticEmail" name="rincian_pembayaran" class="form-control-plaintext" value="Pembayaran Iuran Wajib">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

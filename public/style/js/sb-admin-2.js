@@ -68,6 +68,8 @@
                 responsive: true,
             });
         } );
+
+        
     // <!-- end datatable -->
 
     // <!-- delete sweetalert -->
@@ -133,6 +135,49 @@
               }
               });
       });
+
+      // taliasih
+      $ ('.delete-taliasih').click( function (){
+        var taliasihid = $(this).attr('data-id');
+          swal({
+              title: "Are you sure?",
+              text: "Anda yakin ingin menghapus "+taliasihid+" ",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+                  window. location = "/delete-taliasih/"+taliasihid+" "
+                  swal("Berhasil menghapus transaksi!", {
+                  icon: "success",
+                  });
+              } else {
+                  swal("Transaksi masih tersimpan");
+              }
+              });
+      });
+
+      $ ('.delete-transaksi').click( function (){
+        var transaksiid = $(this).attr('data-id');
+          swal({
+              title: "Are you sure?",
+              text: "Anda yakin ingin menghapus "+transaksiid+" ",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+                  window. location = "/delete-transaksi/"+transaksiid+" "
+                  swal("Berhasil menghapus transaksi!", {
+                  icon: "success",
+                  });
+              } else {
+                  swal("Transaksi masih tersimpan");
+              }
+              });
+      });
       
     // <!-- endsweetalert -->
 
@@ -158,4 +203,46 @@
         });
 
 
+        var jumlah = document.getElementById("jumlah");
+        var iuran = document.getElementById("iuran");
+        var total = document.getElementById("total");
+        var val1, val2;
+
+        jumlah.oninput = iuran.oninput = change;
+
+        function change(e)
+        {
+          if(e.target.id == 'jumlah')
+          {
+            val1 = Number(e.target.value);
+          }
+          else if(e.target.id == 'iuran')
+          {
+            val2 = Number(e.target.value);
+          }
+          
+          if(!isNaN(val1) && !isNaN(val2))
+          {
+            total.value = val1 * val2;
+          }
+          else if(isNaN(val1) && !isNaN(val2))
+          {
+            total.value = val2;
+          }
+          else if(!isNaN(val1) && isNaN(val2))
+          {
+            total.value = val1;
+          }
+        }
+
+        
+        window.cleave = new Cleave('#iuran', {
+          numeral: true,
+          numeralThousandsGroupStyle: 'thousand'
+      });
+  
+      window.cleave = new Cleave('#total', {
+          numeral: true,
+          numeralThousandsGroupStyle: 'thousand'
+      });
 })(jQuery); // End of use strict

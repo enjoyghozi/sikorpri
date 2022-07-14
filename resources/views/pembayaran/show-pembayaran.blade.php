@@ -92,7 +92,7 @@
                     <div class="form-group">
                         <label class="form-label text-secondary">Nama Unit*</label>
                         @foreach ($anggota->take(1) as $item)
-                            <input type="text" disabled class="ml-3 form-control-plaintext font-weight-bold text-black" name="namaunit" id="namaunit" value="{{$item->daftar_unit->nama}}">
+                            <input type="text" class="ml-3 form-control-plaintext font-weight-bold text-black" name="namaunit" id="namaunit" value="{{$item->daftar_unit->nama}}">
                         @endforeach
                     </div>
 

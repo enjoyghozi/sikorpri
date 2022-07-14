@@ -56,7 +56,7 @@
                             <select class="form-control select2" style="width: 100%" name="nominal" id="nominal" required="required">
                                 <option value="- Pilih Nominal -">- Pilih Nominal -</option>
                                 @foreach ($golongan as $item)
-                                <option value="{{ $item->nominal }}">{{ $item->nominal }}</option>
+                                <option value="{{ $item->nominal }}">Rp{{ number_format($item->nominal) }}</option>
                                 @endforeach
                             </select>
                         </div>

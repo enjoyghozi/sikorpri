@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Taliasih;
 use App\Models\Daftar_unit;
+use App\Models\Anggota;
+use App\Models\BayarTaliasih;
+use App\Models\Pembayaran;
+
 
 class TaliasihController extends Controller
 {
@@ -24,10 +28,16 @@ class TaliasihController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        if($request) {
+            $byr = BayarTaliasih::where('daftar_unit_id', 'like', '%' .$request->search. '%')->take(1)->latest()->get();
+        }else {
+            $byr = BayarTaliasih::where('created_at')->take(1)->latest();
+        }
         $unit = Daftar_unit::all();
-        return view('taliasih.create-taliasih', compact('unit'));
+        $anggota = Anggota::all();
+        return view('taliasih.create-taliasih', compact('unit','byr', 'request','anggota'));
     }
 
     /**
@@ -38,6 +48,21 @@ class TaliasihController extends Controller
      */
     public function store(Request $request)
     {
+
+        $nm = $request->foto;
+        $namaFile = time().rand(100,999).".".$namaFile = $nm->getClientOriginalName();
+
+            $dtTaliasih = new Taliasih;
+            $dtTaliasih->nama_unit = $request->unit;
+            $dtTaliasih->jumlah_anggota = $request->jumlah_anggota;
+            $dtTaliasih->total = $request->total;
+            $dtTaliasih->tanggal = $request->tanggal;
+            $dtTaliasih->foto = $namaFile;
+
+            $nm->move(public_path().'/img', $namaFile);
+            $dtTaliasih->save();
+
+            return redirect()->back()->with('toast_success', 'Berhasil Menyimpan Taliasih!');
     }
 
     /**
@@ -48,7 +73,7 @@ class TaliasihController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**

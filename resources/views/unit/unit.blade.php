@@ -25,7 +25,7 @@
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-unit">+ Tambah Unit</a>
                 @endif
                 <div class="card-body text-gray-800">
-                    <table class="table-striped" id="myTable" >
+                    <table class="table-striped" id="myTable">
                     <thead class="table-primary">
                         <tr>
                             <th class="text-gray-800">#</th>

@@ -99,11 +99,11 @@
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Saldo Tali Asih & Uang Duka
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                    <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">Rp {{ number_format($dtTaliasih->sum('total')) }}</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -115,7 +115,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            <i class="fas fa-thin fa-sack-dollar fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

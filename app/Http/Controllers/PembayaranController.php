@@ -98,6 +98,8 @@ class PembayaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pembayaran = Pembayaran::findorfail($id);
+        $pembayaran->delete();
+        return back();
     }
 }

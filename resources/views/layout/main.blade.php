@@ -111,31 +111,66 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih Pembayaran:</h6>
                         <a class="collapse-item" href="/pembayaran">Iuran Wajib</a>
-                        <a class="collapse-item" href="/taliasih">Iuran Tali Asih <br> & Uang Duka</a>
+                        <a class="collapse-item" href="/create-taliasih">Iuran Tali Asih <br> & Uang Duka</a>
                     </div>
                 </div>
             </li>
 
             @if (auth()->user()->level == "admin")
-                <li class="nav-item @yield('transaksi')">
-                    <a class="nav-link collapsed" href="/transaksi"><i class="fa fa-table"></i>
-                        <span>Transaksi</span>
-                    </a>
-                </li>
+                
+            <li class="nav-item @yield('transaksi')">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
+                    aria-expanded="true" aria-controls="transaksi">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Transaksi</span>
+                </a>
+                <div id="transaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih transaksi:</h6>
+                        <a class="collapse-item" href="/transaksi">Iuran Wajib</a>
+                        <a class="collapse-item" href="/taliasih">Iuran Tali Asih <br> & Uang Duka</a>
+                    </div>
+                </div>
+            </li>
             @endif
             @if (auth()->user()->level == "unit")
+
                 <li class="nav-item @yield('riwayat')">
-                    <a class="nav-link collapsed" href="/riwayat"><i class="fa fa-list-alt"></i>
-                        <span>Riwayat</span>
-                    </a>
-                </li>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#riwayat"
+                    aria-expanded="true" aria-controls="riwayat">
+                    <i class="fa fa-list-alt"></i>
+                    <span>Riwayat</span>
+                </a>
+                <div id="riwayat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Riwayat Transaksi:</h6>
+                        <a class="collapse-item" href="/riwayat-iuranwajib">Iuran Wajib</a>
+                        <a class="collapse-item" href="/riwayat-taliasih">Iuran Tali Asih <br> & Uang Duka</a>
+                    </div>
+                </div>
+            </li>
             @endif
 
+            @if (auth()->user()->level == "admin")
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                AddOns
+            </div>
+
+            <li class="nav-item @yield('Pensiun / Purna Tugas')">
+                <a class="nav-link" href="/purnatugas"><i class="fa fa-address-card mr-1"></i>
+                    <span>Pensiun / Purna Tugas</span>
+                </a>
+            </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="sidebar-heading">
-                AddOns
+                Utility
             </div>
             <li class="nav-item @yield('pengaturan')">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pengaturan"
@@ -151,7 +186,6 @@
                     </div>
                 </div>
             </li>
-
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -310,12 +344,14 @@
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('style/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <script src="{{ asset('style/js/sb-admin-2.min.js')}}"></script>
     <script src="{{ asset('style/js/sb-admin-2.js')}}"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+
 
 </body>
 
