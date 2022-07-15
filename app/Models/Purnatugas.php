@@ -11,8 +11,9 @@ class Purnatugas extends Model
     protected $primaryKey ="id";
     protected $fillable = [
         'id',
-        'nama_unit',
+        'nama_anggota',
         'nip',
+        'unit',
         'bukti',
         'created_at',
     ];

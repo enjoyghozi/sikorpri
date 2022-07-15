@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], funct
 
     // Purnatugas
     Route::get('/purnatugas', [PurnatugasController::class, 'index'])->name('purnatugas');
+    Route::post('/simpan-purna', [PurnatugasController::class, 'store'])->name('simpan-purna');
 
     Route::get('/pengaturan', function () {
         return view('pengaturan');

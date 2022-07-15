@@ -15,8 +15,9 @@ class PurnatugasController extends Controller
      */
     public function index()
     {
+        $unit = Daftar_unit::all();
         $purna = Purnatugas::all();
-        return view('purnatugas.purnatugas', compact('purna'));
+        return view('purnatugas.purnatugas', compact('purna', 'unit'));
     }
 
     /**
@@ -37,7 +38,21 @@ class PurnatugasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $nm = $request->bukti;
+        $namaFile = time().rand(100,999).".".$namaFile = $nm->getClientOriginalName();
+
+        $purna = new Purnatugas;
+        $purna ->nama_anggota = $request->nama_anggota;
+        $purna ->nip = $request->nip;
+        $purna ->unit = $request->nama_unit;
+        $purna ->bukti = $namaFile;
+
+        $nm->move(public_path().'/img', $namaFile);
+        $purna->save();
+        
+            
+        return redirect('/purnatugas')->with('toast_success', 'Berhasil Menyimpan Transaksi!');
     }
 
     /**

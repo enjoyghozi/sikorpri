@@ -24,11 +24,11 @@
                 <form action=" {{ route('simpan-unit')}}" method="post" required="required">
                     {{ csrf_field() }}
                     <div class="form-group">
-                            <label class="form-label">Nama Unit</label>
-                            <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan nama unit .." required="required">
-                            <button type="submit" class="btn btn-success btn-sm float-right mt-3">Simpan data</button>
-                        </div>
-                    </form>
+                        <label class="form-label">Nama Unit</label>
+                        <input type="text" id="nama" name="nama" class="form-control " placeholder="Isikan nama unit .." required="required">
+                        <button type="submit" class="btn btn-success btn-sm float-right mt-3">Simpan data</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
