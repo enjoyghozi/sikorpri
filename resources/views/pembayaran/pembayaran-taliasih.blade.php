@@ -46,9 +46,11 @@
                                 <td>
                                 <a href="{{ asset( 'img/'. $item->foto ) }}" target="_blank" rel="noopener noreferrer"> Lihat foto</a>
                                 </td>
+                                @if (auth()->user()->level == "superadmin")
                                 <td>
                                     <a href="#"><i class="fa-solid fa-trash-can delete-taliasih" data-id="{{$item->id}}" style="color: red"></i></a>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

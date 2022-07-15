@@ -84,7 +84,7 @@
                         <span>Daftar Anggota</span>
                     </a>
                 </li>
-                @if (auth()->user()->level == "admin")
+                @if (auth()->user()->level == "superadmin")
                 <li class="nav-item @yield('admin')">
                     <a class="nav-link" href="/admin"><i class="fa fa-users"></i>
                         <span>Daftar Admin</span>
@@ -116,7 +116,7 @@
                 </div>
             </li>
 
-            @if (auth()->user()->level == "admin")
+            @if (auth()->user()->level == "superadmin")
                 
             <li class="nav-item @yield('transaksi')">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
@@ -151,7 +151,7 @@
             </li>
             @endif
 
-            @if (auth()->user()->level == "admin")
+            @if (auth()->user()->level == "superadmin")
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

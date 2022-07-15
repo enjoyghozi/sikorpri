@@ -21,15 +21,18 @@
             </div>
 
         <div class="card shadow mb-4">
+            @if (auth()->user()->level == "superadmin")
             <div class="card-header">
                 <button class="btn btn-success" data-toggle="modal" data-target="#createModal">Tambah User +</button>
             </div>
+            @endif
             <div class="card-body text-gray-800">
                 <table class="table-striped" id="myTable">
                     <thead>
                         <tr class="table-primary">
                             <th class="text-gray-800">ID</th>
                             <th class="text-gray-800">Nama</th>
+                            <th class="text-gray-800">No Telp/HP</th>                            
                             <th class="text-gray-800">Level</th>
                             <th class="text-gray-800">Email</th>
                             <th class="text-gray-800">Aksi</th>
@@ -40,14 +43,17 @@
                         <tr>
                             <td>{{ $item-> id }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{ $item->telp }}</td>
                             <td>{{ $item->level }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
                             <div>
+                            @if (auth()->user()->level == "superadmin")
                                 <a href="{{ url('edit-admin', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                 | 
                                 <a href="#"><i class="fa-solid fa-trash delete-user" style="color: red;" data-id="{{$item->id}}"></i></a>
                             </div>
+                            @endif
                             </td>
                         </tr>
                         @endforeach
@@ -56,7 +62,7 @@
             </div>
         </div>
 </div>
-
+@if (auth()->user()->level == "superadmin")
 <div class="modal fade border-0" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="color: black;">
@@ -66,7 +72,6 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
         <div class="modal-body">
             <form action="{{ route('simpanregistrasi') }}" method="post">
                 {{ csrf_field() }}
@@ -74,6 +79,12 @@
                     <label class="form-label font-weight-bold">Nama*</label>
                     <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required="required">
                 </div>
+
+                <div class="form-group">
+                    <label class="form-label font-weight-bold">Telp/HP*</label>
+                    <input type="number" class="form-control" name="telp" placeholder="No Telp/HP" required="required">
+                </div>
+
                 <div class="form-group">
                     <label class="form-label font-weight-bold">Level*</label>
                     <select name="level" class="form-control w-100" required="required" id="">
@@ -95,5 +106,6 @@
         </div>
     </div>
 </div>
+@endif
 @include('sweetalert::alert')
 @endsection

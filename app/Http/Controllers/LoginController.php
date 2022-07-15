@@ -32,11 +32,12 @@ class LoginController extends Controller
     public function simpanregistrasi(Request $request){
         User::create([
             'name' => $request->name,
+            'telp' => $request->telp,
             'level' => $request->level,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
-        return back();
+        return view('login.login-korpri');
     }
 }

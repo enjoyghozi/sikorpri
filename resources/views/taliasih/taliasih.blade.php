@@ -3,6 +3,7 @@
 @section('container')
 @section('title', 'Riwayat Taliasih')
 @section('riwayat', 'active')
+@if (auth()->user()->level == "superadmin")
 <body class="hold-transition sidebar-mini">
     <div class="content-header">
         <div class="container-fluid">
@@ -70,5 +71,6 @@
         </div>
     </div>  
 </body>
+@endif
 @include('sweetalert::alert')
 @endsection

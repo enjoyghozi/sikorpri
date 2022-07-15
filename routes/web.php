@@ -9,6 +9,8 @@ use App\Http\Controllers\TaliasihController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BayarTaliasihController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PurnatugasController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +35,7 @@ Route::get('/registrasi', [LoginController::class, 'registrasi'])->name('registr
 Route::post('/simpanregistrasi', [LoginController::class, 'simpanregistrasi'])->name('simpanregistrasi');
 
 // home
-Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     
     // unit
@@ -94,6 +96,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit']], function () {
     Route::get('/riwayat-taliasih', [TaliasihController::class, 'index'])->name('riwayat-taliasih');
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
     Route::get('/delete-transaksi/{id}', [TransaksiController::class, 'destroy'])->name('delete-transaksi');
+
+    // Purnatugas
+    Route::get('/purnatugas', [PurnatugasController::class, 'index'])->name('purnatugas');
 
     Route::get('/pengaturan', function () {
         return view('pengaturan');

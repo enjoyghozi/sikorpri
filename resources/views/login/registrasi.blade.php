@@ -49,6 +49,11 @@
                                         <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" name="name" placeholder="Nama Lengkap" required="required">
                                         </div>
+
+                                        <div class="form-group">
+                                                <input type="number" class="form-control form-control-user" name="telp" placeholder="Nomor Telp/HP" required="required">
+                                        </div>
+
                                         <div class="form-group">
                                                 <input type="text" hidden name="level" value="unit">
                                         </div>

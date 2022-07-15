@@ -28,6 +28,12 @@
                     <div class="form-group col-md-6">
                         <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required="required" value="{{ $user->name }}">
                     </div>
+
+                    <dt class="col-sm-3 mt-2 ml-5 mr-5">Telp/HP</dt>
+                    <div class="form-group col-md-6">
+                        <input type="number" class="form-control" name="telp" placeholder="Telp/HP" required="required" value="{{ $user->name }}">
+                    </div>
+
                     <dt class="col-sm-3 mt-2 ml-5 mr-5">Level</dt>
                     <div class="form-group col-md-6">
                         <select name="level" class="form-control col-md-6 w-100" required="required" id="">
