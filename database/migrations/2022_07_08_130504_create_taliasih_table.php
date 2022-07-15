@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('unit', 100);
             $table->integer('jumlah_anggota');
-            $table->date('tanggal');
             $table->integer('total');
             $table->string('foto', 100);
             $table->timestamps();

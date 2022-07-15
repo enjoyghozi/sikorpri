@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nama_unit', 100);
             $table->string('jenis_pembayaran', 100);
             $table->integer('total_pembayaran');
-            $table->date('tanggal_pembayaran');
             $table->string('foto_bukti', 100);
             $table->timestamps();
         });

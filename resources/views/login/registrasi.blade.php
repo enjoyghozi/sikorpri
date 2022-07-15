@@ -39,12 +39,13 @@
                             <div class="col-lg-6 d-none d-lg-block">
                                 <img src="{{ asset('img/korpri-register.png')}}" style='height: 100%; width: 100%; object-fit: contain'>
                             </div>
+
                             <div class="col-lg-6">
-                                <div class="p-5">
+                                <div class="pt-5 mr-4">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Buat Akun Anda!</h1>
+                                        <h1 class="h4 text-gray-900 mb-3">Buat Akun SIKORPRI !</h1>
                                     </div>
-                                    <form action="{{ route('simpanregistrasi') }}" method="post"  class="user ml-5">
+                                    <form action="{{ route('simpanregistrasi') }}" method="post"  class="user">
                                     {{ csrf_field() }}
                                         <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" name="name" placeholder="Nama Lengkap" required="required">
@@ -66,10 +67,10 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register Account
                                         </button>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
-                                    </div>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small" href="{{ route('login') }}">Sudah punya akun? Login!</a>
+                                        </div>
                                     </form>
                                 <!-- <div class="text-center">
                                     <a class="small" href="forgot-password.html">Forgot Password?</a>

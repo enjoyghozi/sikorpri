@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], funct
     Route::post('/update-unit/{id}', [UnitController::class, 'update'])->name('update-unit');
     Route::get('/delete-unit/{id}', [UnitController::class, 'destroy'])->name('delete-unit');
     Route::get('/show-unit/{id}', [UnitController::class, 'show'])->name('show-unit');
+    Route::get('/cetak-unit', [UnitController::class, 'cetakUnit'])->name('cetak-unit');
+    Route::get('/cetak-anggotaperunit/{id}', [UnitController::class, 'cetakAnggotaperunit'])->name('cetak-anggotaperunit');
     
     
     // anggota
@@ -59,6 +61,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], funct
     Route::get('/edit-anggota/{id}', [AnggotaController::class, 'edit'])->name('edit-anggota');
     Route::post('/update-anggota/{id}', [AnggotaController::class, 'update'])->name('update-anggota');
     Route::get('/delete-anggota/{id}', [AnggotaController::class, 'destroy'])->name('delete-anggota');
+    Route::get('/cetak-anggota', [AnggotaController::class, 'cetakAnggota'])->name('cetak-anggota');
+
 
     // Admin
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
@@ -84,12 +88,16 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], funct
     Route::get('/create-taliasih', [TaliasihController::class, 'create'])->name('create-taliasih');
     Route::post('/simpan-taliasih', [TaliasihController::class, 'store'])->name('simpan-taliasih');
     Route::get('/delete-taliasih/{id}', [TaliasihController::class, 'destroy'])->name('delete-taliasih');
+    Route::get('/cetak-taliasihpertanggal/{tglawal}/{tglakhir}', [TaliasihController::class, 'cetakTaliasihPertanggal'])->name('cetak-taliasihpertanggal');
 
     
     
     // Transaksi
-    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::get('/transaksi-iuranwajib', [TransaksiController::class, 'index'])->name('transaksi-iuranwajib');
     Route::post('/simpan-transaksi', [TransaksiController::class, 'store'])->name('simpan-transaksi');
+    Route::get('/cetak-transaksipertanggal/{tglawal}/{tglakhir}', [TransaksiController::class, 'cetakTransaksiPertanggal'])->name('cetak-transaksipertanggal');
+    Route::get('/transaksi-taliasih', [TransaksiController::class, 'transaksiTaliasih'])->name('transaksi-iuranwajib');
+
     
     // Riwayat
     Route::get('/riwayat-iuranwajib', [TransaksiController::class, 'riwayat'])->name('riwayat-iuranwajib');
@@ -100,6 +108,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,unit,superadmin']], funct
     // Purnatugas
     Route::get('/purnatugas', [PurnatugasController::class, 'index'])->name('purnatugas');
     Route::post('/simpan-purna', [PurnatugasController::class, 'store'])->name('simpan-purna');
+    Route::get('/cetak-purnatugaspertanggal/{tglawal}/{tglakhir}', [PurnatugasController::class, 'cetakPurnatugasPertanggal'])->name('cetak-purnatugaspertanggal');
+
 
     Route::get('/pengaturan', function () {
         return view('pengaturan');

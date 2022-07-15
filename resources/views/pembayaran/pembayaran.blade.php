@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h2 class=" text-gray-800">Laman Pembayaran KORPRI</h2>
+            <h2 class=" text-gray-800">Laman Pembayaran Iuran Wajib KORPRI</h2>
             <p class="mt-4 text-gray-800">Selamat datang di laman pembayaran iuran wajib Unit <span class="font-weight-bold">KORPRI.</span>  <br>Ini adalah rincian pembayaran iuran wajib unit berdasarkan jumlah anggota. <span class="font-weight-bold"> Hati-hati!</span> dalam melakukan pembayaran. Pastikan <span class="font-weight-bold">nominal sesuai</span> dengan total yang di tentukan.</p>
 
         </div>
@@ -17,41 +17,39 @@
             </ol>
         </div>
     </div>
-    <div class="container">
-        <div class="card mt-3 shadow mb-4">
-            <div class="card-header">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                Pilih Unit +
-                </button>
-            </div>
-            <div class="card-body">
-                <table action="post" class="table text-gray-800" id="table-pembayaran">
-                    <thead class="table-primary">
-                        <tr>
-                            <th class="text-gray-800">ID Pembayaran</th>
-                            <th class="text-gray-800">Nama Unit</th>
-                            <th class="text-gray-800">Jumlah Anggota</th>
-                            <th class="text-gray-800">Tanggal Pembayaran</th>
-                            <th class="text-gray-800">Rincian Pembayaran</th>
-                        </tr>
-                    </thead>
-                    @foreach ($pembayaran as $item)
-                    <tbody>
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->daftar_unit->nama}} </td>
-                            <td>{{ $item->daftar_unit->anggota->count()}}</td>
-                            <td>{{ $item->created_at }}</td>
-                            <td>{{ $item->rincian_pembayaran }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-footer">
-                <a class="btn btn-secondary shadow mb-4 float-right" href="{{ route('show-pembayaran', $item->daftar_unit_id)}}" >Lihat Detail dan Pembayaran</a>
-            </div>
-            @endforeach
+    <div class="card mt-3 shadow mb-4">
+        <div class="card-header">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Pilih Unit +
+            </button>
         </div>
+        <div class="card-body">
+            <table action="post" class="table text-gray-800" id="table-pembayaran">
+                <thead class="table-primary">
+                    <tr>
+                        <th class="text-gray-800">ID Pembayaran</th>
+                        <th class="text-gray-800">Nama Unit</th>
+                        <th class="text-gray-800">Jumlah Anggota</th>
+                        <th class="text-gray-800">Tanggal Pembayaran</th>
+                        <th class="text-gray-800">Rincian Pembayaran</th>
+                    </tr>
+                </thead>
+                @foreach ($pembayaran as $item)
+                <tbody>
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->daftar_unit->nama}} </td>
+                        <td>{{ $item->daftar_unit->anggota->count()}}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->rincian_pembayaran }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-secondary shadow mb-4 float-right" href="{{ route('show-pembayaran', $item->daftar_unit_id)}}" >Lihat Detail dan Pembayaran</a>
+        </div>
+        @endforeach
     </div>
 </div>
     
@@ -68,6 +66,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                
                 <div class="modal-body">
                     <form class="row mt-2" action=" {{ route('simpan-pembayaran')}}" method="post" required="required">
                         {{ csrf_field() }}
@@ -84,7 +83,6 @@
                             <div class="form-group col-md-6">
                                 <input type="text" readonly id="staticEmail" name="rincian_pembayaran" class="form-control-plaintext" value="Pembayaran Iuran Wajib">
                             </div>
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Tambah</button>

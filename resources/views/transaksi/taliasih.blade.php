@@ -1,8 +1,8 @@
 @extends( 'layout.main' )
 
 @section('container')
-@section('title', 'Riwayat Taliasih')
-@section('riwayat', 'active')
+@section('title', 'Transaksi Taliasih')
+@section('transaksi', 'active')
 
 <body class="hold-transition sidebar-mini">
     <div class="content-header">
@@ -25,7 +25,7 @@
         <div class="card shadow mb-4">
             @if (auth()->user()->level == "superadmin")
             <div class="card-header">
-                <a href="#" target="_blank" data-toggle="modal" data-target="#cetak" class="btn btn-success btn-sm float-right" >Cetak <i class="fa-solid fa-print"></i></a>
+                <a href="#" target="_blank" data-toggle="modal" data-target="#cetak" class="btn btn-secondary btn-sm float-right" >Cetak <i class="fa-solid fa-print"></i></a>
             </div>
             @endif
             <div class="card-body">

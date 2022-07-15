@@ -38,7 +38,7 @@
                             <td>{{ $item->nama_unit }}</td>
                             <td>{{ $item->jenis_pembayaran }}</td>
                             <td class="text-center">Rp {{ number_format($item->total_pembayaran) }}</td>
-                            <td class="text-center">{{ $item->tanggal_pembayaran }}</td>
+                            <td class="text-center">{{ $item->created_at }}</td>
                             <td>
                                 <a href="{{ asset( 'img/'. $item->foto_bukti ) }}" target="_blank" rel="noopener noreferrer"> Lihat foto</a>
                             </td>

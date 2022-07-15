@@ -78,7 +78,19 @@ class UnitController extends Controller
             
         ]);
             
-            return back()->with('toast_success', 'Berhasil menyimpan unit!');;
-        }
+        return back()->with('toast_success', 'Berhasil menyimpan unit!');;
+    }
+
+    public function cetakunit(Request $request)
+    {
+        $cetakUnit = Daftar_unit::all();
+        return view ('unit.cetak-unit', compact('cetakUnit'));
+    }
+
+    public function cetakAnggotaperunit($id)
+    {
+        $cetakAnggota = Anggota::where('daftar_unit_id', $id)->get();
+        return view ('unit.cetak-anggotaperunit', compact('cetakAnggota'));
+    }
 
 }

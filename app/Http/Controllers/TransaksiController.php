@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Taliasih;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -50,7 +51,6 @@ class TransaksiController extends Controller
             $dtTransaksi->nama_unit = $request->namaunit;
             $dtTransaksi->jenis_pembayaran = $request->rincian;
             $dtTransaksi->total_pembayaran = $request->total;
-            $dtTransaksi->tanggal_pembayaran = $request->tanggal;
             $dtTransaksi->foto_bukti = $namaFile;
 
             $nm->move(public_path().'/img', $namaFile);
@@ -106,4 +106,25 @@ class TransaksiController extends Controller
         $dtTransaksi->delete();
         return back();
     }
+
+    public function transaksiTaliasih()
+    {
+        $dttaliasih = Taliasih::latest()->get(); 
+        return view('transaksi.taliasih', compact('dttaliasih'));
+    }
+
+    public function cetakTransaksi(Request $request)
+    {
+        $datatransaksi = Transaksi::all();
+        
+        return view ('transaksi.cetak-transaksi', compact('datatransaksi'));
+    }
+    
+    public function cetakTransaksiPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = Transaksi::whereBetween('created_at', [$tglawal, $tglakhir])->get();
+        return view ('transaksi.cetak-transaksi', compact('cetakPertanggal'));
+    }
+
 }
+

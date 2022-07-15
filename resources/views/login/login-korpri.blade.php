@@ -62,7 +62,7 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div> -->
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('registrasi') }}">Create an Account!</a>
+                                        <a class="small" href="{{ route('registrasi') }}">Buat akun SIKORPRI!</a>
                                     </div>
                                 </div>
                             </div>

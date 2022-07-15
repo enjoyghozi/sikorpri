@@ -107,11 +107,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label text-secondary">Tanggal Pembayaran*</label>
-                        <input type="date" class="ml-3 form-control w-50 font-weight-bold text-black" name="tanggal" id="tanggal" required="required">
-                    </div>
-
-                    <div class="form-group">
                         <label class="form-label text-secondary">Nomor Rekening</label>
                         <p class="ml-3 text-black" style="font-size: 18px; font-weight: bold;">3-016-22368-8</p>
                     </div>

@@ -15,7 +15,7 @@ class Transaksi extends Model
         'daftar_unit_id',
         'jenis_pembayaran',
         'total_pembayaran',
-        'tanggal_pembayaran',
+        'created_at',
         'foto_bukti',
     ];
 }

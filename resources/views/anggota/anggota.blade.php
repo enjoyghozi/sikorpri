@@ -21,7 +21,7 @@
             <div class="card-header">
             @if (auth()->user()->level == "admin")
             @elseif (auth()->user()->level == "superadmin")
-                <a href=" {{ route('exportanggota') }}" class="btn btn-success btn-sm" >Download</a>
+                <a href=" {{ route('cetak-anggota') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-anggota">+ Tambah Anggota</a>
             @endif
@@ -63,6 +63,10 @@
                         <td>
                             <div class ="text-gray-800">
                             @if (auth()->user()->level == "admin")
+                                <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
+                                | 
+                                <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>
+                            
                             @elseif (auth()->user()->level == "superadmin")
                                 <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                 | 

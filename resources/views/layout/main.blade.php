@@ -51,7 +51,7 @@
                 <div class="sidebar-brand-icon">
                     <img src="{{ asset('img/logo-korpri.png')}}" style='height: 50%; width: 50%; object-fit: contain'></img>
                 </div>
-                    <div class="sidebar-brand-text text-shadow mx-3">SIKORPRI</div>
+                    <div class="sidebar-brand-text text-shadow mx-3">SIKORPRI BLORA</div>
             </a>
 
             <!-- Divider -->
@@ -127,8 +127,8 @@
                 <div id="transaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilih transaksi:</h6>
-                        <a class="collapse-item" href="/transaksi">Iuran Wajib</a>
-                        <a class="collapse-item" href="/taliasih">Iuran Tali Asih <br> & Uang Duka</a>
+                        <a class="collapse-item" href="/transaksi-iuranwajib">Iuran Wajib</a>
+                        <a class="collapse-item" href="/transaksi-taliasih">Iuran Tali Asih <br> & Uang Duka</a>
                     </div>
                 </div>
             </li>
@@ -214,12 +214,41 @@
 
                     <!-- Topbar Title -->
                     <form class="title text-primary ml-5">
-                        <h4 style="font-weight: bold;">Sistem Informasi KORPRI</h4>
+                        <h4 style="font-weight: bold;">Sistem Informasi KORPRI Kabupaten Blora</h4>
                     </form>
 
-
+                    
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-solid fa-headset fa-fw" style="color: blue"></i>
+                                    
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Contact Person
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="{{ asset('style/img/whatsapp.png')}}"
+                                                alt="...">
+                                            <div class=""></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+
+                                        <div class="text-truncate">Febri</div>
+                                        <div class="small text-gray-500">(+62)857-2701-0124</div>
+                                    </div>
+                                </a>
+                                </div>
+                            </li>
+    
+                            <div class="topbar-divider d-none d-sm-block"></div>
                         
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">

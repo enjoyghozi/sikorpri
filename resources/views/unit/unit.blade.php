@@ -21,8 +21,8 @@
             <div class="card-header">
                 @if (auth()->user()->level == "admin")
                 @elseif (auth()->user()->level == "superadmin")
-                <a href=" {{ route('exportunit') }}" class="btn btn-success btn-sm" >Download</a>
-                <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
+                <a href=" {{ route('cetak-unit') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
+                <!-- <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a> -->
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-unit">+ Tambah Unit</a>
                 @endif
                 <div class="card-body text-gray-800">
@@ -51,16 +51,31 @@
                         
                         <td>
                             <div class="text-gray-800">
-                                <a class="btn btn-secondary btn-sm text-center"href=" {{ route('show-unit', $unit->id)}}">Lihat<i class="fa-solid fa-eye ml-3"></i></i></a></td>
+                                <a class="btn btn-secondary btn-sm text-center"href=" {{ route('show-unit', $unit->id) }}">Lihat<i class="fa-solid fa-eye ml-3"></i></i></a></td>
                             </div>
                             <td>
+
+
                             @if (auth()->user()->level == "admin")
-                            @elseif (auth()->user()->level == "superadmin")
-                                <div class ="text-center">
+                                <div>
                                     <a href="{{ url('edit-unit', $unit->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                     | 
                                     <a href="#"><i class="fa-solid fa-trash delete-unit" style="color: red;" data-id="{{$unit->id}}"></i></a>
+                                    |
+                                    <a href="{{ url('cetak-anggotaperunit', $unit->id)}}" style="color: grey"><i class="fa-solid fa-print"></i></a> 
                                 </div>
+                            
+                            @elseif (auth()->user()->level == "superadmin")
+                                <div>
+                                    <a href="{{ url('edit-unit', $unit->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
+                                    | 
+                                    <a href="#"><i class="fa-solid fa-trash delete-unit" style="color: red;" data-id="{{$unit->id}}"></i></a>
+                                    |
+                                    <a href="{{ url('cetak-anggotaperunit', $unit->id)}}" style="color: grey"><i class="fa-solid fa-print"></i></a> 
+                                </div>
+                            @elseif (auth()->user()->level == "unit")
+                                <a href="{{ url('cetak-anggotaperunit', $unit->id)}}" style="color: grey"><i class="fa-solid fa-print"></i></a> 
+
                             @endif
                             </td>
                         </tr>

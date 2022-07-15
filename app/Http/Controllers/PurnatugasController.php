@@ -99,4 +99,10 @@ class PurnatugasController extends Controller
     {
         //
     }
+
+    public function cetakPurnatugasPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPurna = Purnatugas::whereBetween('created_at', [$tglawal, $tglakhir])->get();
+        return view ('purnatugas.cetak-purnatugas', compact('cetakPurna'));
+    }
 }

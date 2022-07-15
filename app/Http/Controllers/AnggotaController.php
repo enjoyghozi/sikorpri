@@ -121,7 +121,14 @@ class AnggotaController extends Controller
         $anggota = Anggota::findorfail($id);
         $anggota->delete();
         return back();
-        // return redirect('/anggota')->with('toast_success', 'Berhasil mengubah anggota!');
 
+    }
+
+    public function cetakAnggota()
+    {
+        $golongan = Golongan::all();
+        $unit = Daftar_unit::all();
+        $cetakanggota = Anggota::all();
+        return view ('anggota.cetak-anggota', compact('cetakanggota', 'unit', 'golongan'));
     }
 }

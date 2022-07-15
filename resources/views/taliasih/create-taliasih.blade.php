@@ -28,8 +28,8 @@
                 <div class="card-header">
                     <button type="button" class="btn btn-success w-25 float-right" data-toggle="modal" data-target="#pilihunit">+ Pilih Unit</button>
                 </div>
-                        <div class="card-body">
-                            <form action="{{ route('simpan-taliasih') }}" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <form action="{{ route('simpan-taliasih') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @foreach ($byr as $item)
                                 <div class="form-group row">
@@ -65,13 +65,7 @@
                                         <input type="text" readonly id="total" name="total" class="form-control" required="required">
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <dt class="col-md-6">Tanggal Pembayaran*</dt>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="date" id="tanggal" name="tanggal" class="form-control col" placeholder="Tanggal" required="required">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group row">
                                     <dt class="col-md-6">Bukti Pembayaran*</dt>
                                     <div class="col-md-6">
@@ -83,10 +77,9 @@
                             </div>
                         </form>
                     </div>
-                </div>
-        </div>  
+            </div>  
+        </div>
     </div>
-</div>
 
 
 

@@ -56,7 +56,6 @@ class TaliasihController extends Controller
             $dtTaliasih->nama_unit = $request->unit;
             $dtTaliasih->jumlah_anggota = $request->jumlah_anggota;
             $dtTaliasih->total = $request->total;
-            $dtTaliasih->tanggal = $request->tanggal;
             $dtTaliasih->foto = $namaFile;
 
             $nm->move(public_path().'/img', $namaFile);
@@ -114,5 +113,11 @@ class TaliasihController extends Controller
         $tasih = Taliasih::findorfail($id);
         $tasih->delete();
         return back();
+    }
+
+    public function cetakTaliasihPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakTaliasih = Taliasih::whereBetween('created_at', [$tglawal, $tglakhir])->get();
+        return view ('taliasih.cetak-taliasih', compact('cetakTaliasih'));
     }
 }

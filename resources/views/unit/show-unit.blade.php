@@ -23,8 +23,6 @@
             <div class="card-header">
             @if (auth()->user()->level == "admin")
             @elseif (auth()->user()->level == "superadmin")
-                <a href=" {{ route('exportanggota') }}" class="btn btn-success btn-sm" >Download</a>
-                <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
                 <a href=" {{ route('create-anggota')}}" class="btn btn-primary btn-sm" >+ Tambah Anggota</a>
             @endif
             <div class="card-body">

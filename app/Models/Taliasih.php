@@ -10,7 +10,7 @@ class Taliasih extends Model
     protected $table = "taliasih";
     protected $primarykey = "id";
     protected $fillable = [
-        'nama_unit','jumlah_anggota','tanggal','total','foto'
+        'nama_unit','jumlah_anggota','total','foto'
     ];
 
     public function daftar_unit()

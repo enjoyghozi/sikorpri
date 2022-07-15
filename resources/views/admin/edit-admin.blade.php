@@ -31,7 +31,7 @@
 
                     <dt class="col-sm-3 mt-2 ml-5 mr-5">Telp/HP</dt>
                     <div class="form-group col-md-6">
-                        <input type="number" class="form-control" name="telp" placeholder="Telp/HP" required="required" value="{{ $user->name }}">
+                        <input type="number" class="form-control" name="telp" placeholder="Telp/HP" required="required" value="{{ $user->telp }}">
                     </div>
 
                     <dt class="col-sm-3 mt-2 ml-5 mr-5">Level</dt>
