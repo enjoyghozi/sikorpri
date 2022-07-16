@@ -68,11 +68,11 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form class="row mt-2" action=" {{ route('simpan-pembayaran')}}" method="post" required="required">
+                    <form class="row mt-2" action=" {{ route('simpan-pembayaran')}}" method="post">
                         {{ csrf_field() }}
                         <dt class="col-md-5 ml-3">Unit*</dt>
                             <div class="form-group col-md-6">
-                                <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id" required="required">
+                                <select class="form-control select2" style="width: 100%" name="daftar_unit_id" id="daftar_unit_id">
                                     <option disabled value="- Pilih Unit -">- Pilih Unit -</option>
                                     @foreach ($unit as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama }}</option>

@@ -20,6 +20,9 @@
         <div class="card shadow mb-4">
             <div class="card-header">
                 @if (auth()->user()->level == "admin")
+                <a href=" {{ route('cetak-unit') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
+                <!-- <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a> -->
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-unit">+ Tambah Unit</a>
                 @elseif (auth()->user()->level == "superadmin")
                 <a href=" {{ route('cetak-unit') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
                 <!-- <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a> -->

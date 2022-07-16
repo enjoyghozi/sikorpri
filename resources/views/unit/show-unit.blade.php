@@ -22,6 +22,7 @@
         <div class="card shadow mb-4">
             <div class="card-header">
             @if (auth()->user()->level == "admin")
+                <a href=" {{ route('create-anggota')}}" class="btn btn-primary btn-sm" >+ Tambah Anggota</a>
             @elseif (auth()->user()->level == "superadmin")
                 <a href=" {{ route('create-anggota')}}" class="btn btn-primary btn-sm" >+ Tambah Anggota</a>
             @endif
@@ -53,15 +54,20 @@
                         @foreach ($anggota as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td class="text-gray-800">{{ $item->daftar_unit->nama }}</td>
+                            <td>{{ $item->daftar_unit->nama }}</td>
                             <td>{{ $item->nama}}</td>
-                            <td class="text-gray-800">{{ $item->nip }}</td>
-                            <td class="text-gray-800 text-center">{{ $item->golongan->golongan}}</td>
+                            <td>{{ $item->nip }}</td>
+                            <td>{{ $item->golongan->golongan}}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
                             @if (auth()->user()->level == "admin")
+                                <div>
+                                    <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
+                                    | 
+                                    <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>
+                                </div>
                             @elseif (auth()->user()->level == "superadmin")
-                                <div class ="text-center">
+                                <div>
                                     <a href="{{ url('edit-anggota', $item->id)}}"><i class="fa-solid fa-pencil ml-2 "></i></a> 
                                     | 
                                     <a href="#"><i class="fa-solid fa-trash delete-anggota" style="color: red;" data-id="{{$item->id}}"></i></a>

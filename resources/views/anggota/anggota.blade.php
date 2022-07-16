@@ -20,6 +20,8 @@
         <div class="card shadow mb-4">
             <div class="card-header">
             @if (auth()->user()->level == "admin")
+                <a href=" {{ route('cetak-anggota') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-anggota">+ Tambah Anggota</a>
             @elseif (auth()->user()->level == "superadmin")
                 <a href=" {{ route('cetak-anggota') }}" target="_blank" class="btn btn-success btn-sm" >Download</a>
                 <a href="#" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadModal">Upload</a>
@@ -46,10 +48,7 @@
                             <th class="text-gray-800">NIP</th>
                             <th class="text-gray-800">Golongan</th>
                             <th class="text-gray-800">Keterangan (SubUnit)</th>
-                            @if (auth()->user()->level == "admin")
-                            @elseif (auth()->user()->level == "superadmin")
                             <th class="text-gray-800">Tindakan</th>
-                            @endif
                         </tr>
                     </tfoot>
                     @foreach ($anggota as $item)
@@ -81,38 +80,6 @@
         </div>
         
     </div> <!-- /.container-fluid -->
-    
-    <!-- Modal Upload -->
-    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="uploadModalLabel">Upload Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{ route('importanggota') }}" method="post" enctype="multipart/form-data">
-
-                    <div class="modal-body">
-                        <div class="form-group">
-
-
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <input type="file" name="file" required="required">  
-                            </div>
-                        </div>
-        
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Upload</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
 
         <!-- Modal create Anggota -->

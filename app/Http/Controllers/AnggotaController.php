@@ -68,7 +68,7 @@ class AnggotaController extends Controller
             'keterangan' => '',
         ]);
             
-            return redirect('/anggota')->with('toast_success', 'Berhasil menyimpan Anggota!');
+            return back()->with('toast_success', 'Berhasil menyimpan Anggota!');
     }
 
     /**
@@ -107,7 +107,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::findorfail($id);
         $anggota-> update($request->all());
-        return redirect('/anggota')->with('toast_success', 'Berhasil mengubah anggota!');
+        return redirect()->back()->with('toast_success', 'Berhasil mengubah anggota!');
     }
 
     /**

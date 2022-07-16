@@ -24,7 +24,7 @@
                         <td>{{ $item->nama_unit }}</td>
                         <td>{{ $item->jenis_pembayaran }}</td>
                         <td>Rp {{ number_format($item->total_pembayaran) }}</td>
-                        <td>{{ $item->tanggal_pembayaran }}</td>
+                        <td>{{ $item->created_at }}</td>
                     </tr>
                     @endforeach
             </table>

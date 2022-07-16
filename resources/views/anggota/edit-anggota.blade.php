@@ -47,8 +47,8 @@
 
                         <div class="form-group">
                             <label class="form-label font-weight-bold">Golongan*</label>
-                            <select class="form-control select2" name="daftar_unit_id" id="daftar_unit_id" required>
-                            <option disabled value>Pilih Unit</option>
+                            <select class="form-control select2" name="golongan_id" id="golongan" required>
+                            <option disabled value>Pilih Golongan</option>
                             <option value="{{ $anggota->golongan_id }}">{{ $anggota->golongan->golongan }}</option>
                         @foreach ($golongan as $item)
                             <option value="{{ $item->id }}">{{ $item->golongan }}</option>
@@ -60,7 +60,7 @@
                             <label class="form-label font-weight-bold">Nominal Iuran*</label>
                             <select class="form-control select2" name="nominal" id="nominal" required="required">
                                 <option disabled value="- Pilih Nominal -">- Pilih Nominal -</option>
-                                <option value="{{ $anggota->golongan_id }}">Rp{{ number_format($anggota->golongan->nominal) }}</option>
+                                <option value="{{ $anggota->golongan->nominal }}">Rp{{ number_format($anggota->golongan->nominal) }}</option>
                                 @foreach ($golongan as $item)
                                 <option value="{{ $item->nominal }}">Rp{{ number_format($item->nominal) }}</option>
                                 @endforeach
@@ -109,5 +109,5 @@
             </div>
         </div>
     </div>
-
+@include('sweetalert::alert')
 @endsection

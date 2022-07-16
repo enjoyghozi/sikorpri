@@ -121,7 +121,7 @@
             <li class="nav-item @yield('transaksi')">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
                     aria-expanded="true" aria-controls="transaksi">
-                    <i class="fa fa-credit-card"></i>
+                    <i class="fa-solid fa-money-bills"></i>
                     <span>Transaksi</span>
                 </a>
                 <div id="transaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -133,12 +133,27 @@
                 </div>
             </li>
             @endif
-            @if (auth()->user()->level == "unit")
 
+            @if (auth()->user()->level == "admin")
+            <li class="nav-item @yield('riwayat')">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#riwayat"
+                    aria-expanded="true" aria-controls="riwayat">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Riwayat</span>
+                </a>
+                <div id="riwayat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Riwayat Transaksi:</h6>
+                        <a class="collapse-item" href="/riwayat-iuranwajib">Iuran Wajib</a>
+                        <a class="collapse-item" href="/riwayat-taliasih">Iuran Tali Asih <br> & Uang Duka</a>
+                    </div>
+                </div>
+            </li>
+            @elseif (auth()->user()->level == "unit")
                 <li class="nav-item @yield('riwayat')">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#riwayat"
                     aria-expanded="true" aria-controls="riwayat">
-                    <i class="fa fa-list-alt"></i>
+                    <i class="fa-solid fa-receipt"></i>
                     <span>Riwayat</span>
                 </a>
                 <div id="riwayat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -161,7 +176,7 @@
             </div>
 
             <li class="nav-item @yield('Pensiun / Purna Tugas')">
-                <a class="nav-link" href="/purnatugas"><i class="fa fa-address-card mr-1"></i>
+                <a class="nav-link" href="/purnatugas"><i class="fa-solid fa-id-badge"></i>
                     <span>Pensiun / Purna Tugas</span>
                 </a>
             </li>
@@ -175,7 +190,7 @@
             <li class="nav-item @yield('pengaturan')">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pengaturan"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fa fa-credit-card"></i>
+                    <i class="fa-solid fa-gear"></i>
                     <span>Pengaturan</span>
                 </a>
                 <div id="pengaturan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
