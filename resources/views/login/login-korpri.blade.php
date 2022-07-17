@@ -47,13 +47,14 @@
                                     </div>
                                     <form action="{{ route('postlogin')}}" method="post" class="user">
                                         {{ csrf_field() }}
-                                        <div class="form-group mt-5">
+                                        <div class="form-group mt-4">
                                             <input type="email" class="form-control form-control-user" required="required" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" required="required" name="password" placeholder="Password">
                                         </div>
-                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <a class="small" href="{{ route('forgot-password-form') }}">Lupa Password?</a>                                        
+                                            <button type="submit" class="btn btn-primary btn-user btn-block mt-2">
                                                 Login
                                             </button>
                                     </form>

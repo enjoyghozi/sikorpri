@@ -30,6 +30,13 @@ Route::get('/login', [LoginController::class, 'halamanLogin'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Forgot Password
+Route::get('/forgot-password', [LoginController::class, 'showForgotform'])->name('forgot-password-form');
+Route::post('/forgot-password', [LoginController::class, 'sendResetlink'])->name('forgot-password-link');
+Route::get('/reset-password/{token}', [LoginController::class, 'showResetform'])->name('reset.password.form');
+Route::post('/reset-password', [LoginController::class, 'resetPassword'])->name('reset.password');
+
+
 // Registrasi
 Route::get('/registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
 Route::post('/simpanregistrasi', [LoginController::class, 'simpanregistrasi'])->name('simpanregistrasi');
