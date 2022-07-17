@@ -22,7 +22,7 @@ class AnggotaController extends Controller
     {
         $golongan = Golongan::all();
         $unit = Daftar_unit::all();
-        $anggota = Anggota::latest()->get();
+        $anggota = Anggota::all();
         return view ('anggota.anggota', compact('anggota', 'unit', 'golongan'));
     }
 

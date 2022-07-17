@@ -54,7 +54,7 @@
                     @foreach ($anggota as $item)
                     <tr>
                         <td class="text-gray-800">{{$loop->iteration }}</td>
-                        <td class="text-gray-800">{{ $item->daftar_unit->nama }}</td>
+                        <td>{{ $item->daftar_unit->nama }}</td>
                         <td>{{ $item->nama}}</td>
                         <td class="text-gray-800">{{ $item->nip }}</td>
                         <td class="text-gray-800 text-center">{{ $item->golongan->golongan}}</td>
